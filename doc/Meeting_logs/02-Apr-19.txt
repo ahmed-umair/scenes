@@ -1,0 +1,24 @@
+-----------------------------------------change atttending to status
+-----------------------------------------id not suitable for weak entities
+-----------------------------------------IS A relationship
+-----------------------------------------vote_on to vote
+-----------------------------------------Total participation on three occasions between 	
+-----------------------------------------groups should have events
+-----------------------------------------add admin
+
+
+
+
+CHANGES
+1. HAVE -----> Groups will be more like users in terms of creating events
+2. Admins ---> to support adminality
+3. ISA -----> Added soecializaztion on different types of posts
+4. 
+
+
+
+QUESTIONS:
+1. Relationships between generalized or specialized types?
+2. Disjoint difference in triangle
+3. Ternary -- mandatory?? Book says... 
+4. User-comment-post ... nature of relationship [ternary vs. weak (primary key problem)]
