@@ -3,10 +3,10 @@ Scenez is a platform that allows people to gather together for events. This plat
 
 The group consists of:
 
--Talha Zeeshan
+- Talha Zeeshan
 
--Dawood Muzammil Malik
+- Dawood Muzammil Malik
 
--Masna Ahmed
+- Masna Ahmed
 
--Muhammad Umair Ahmed
+- Muhammad Umair Ahmed
