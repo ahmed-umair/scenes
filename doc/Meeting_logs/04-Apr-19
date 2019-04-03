@@ -1,0 +1,10 @@
+Changes made to ER diagram
+	• Solved cardinality problems
+	• Combined three relations into one in two places (added role field)
+	• Seperated event_post
+	• Deleted group post
+	• Mechanism to send messages to group
+	• Added id to comment
+	• Participation of "vote" (Total to partial)
+	• Added roles to group invite
+
