@@ -8,3 +8,7 @@ Changes made to ER diagram
 	• Participation of "vote" (Total to partial)
 	• Added roles to group invite
 
+Dawood:
+	• Screen mockup: landing_page
+	• Screen mockup: signup_page
+
