@@ -8,7 +8,7 @@ public class Scenez_GRP {
 
     }
 
-    public static getID name() {
+    public static void name() {
         
     }
 }
