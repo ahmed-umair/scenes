@@ -33,6 +33,26 @@ public class Scenes_USER {
 		return emails;
 	}
 	
+	public void addUser(String fname, String lname, String email, String pword, String date, String gender) {
+		String query = "INSERT INTO project.user VALUES (?,?,?,?,?,?);";
+		
+		try {
+			PreparedStatement st = s_con.getConnection().prepareStatement(query);
+			st.setString(1, fname);
+			st.setString(2, lname);
+			st.setString(3, email);
+			st.setString(4, pword);
+			st.setString(5, date);
+			st.setString(6, gender);
+			
+			st.executeQuery();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public String getPasswordAsSingle(String email)
 	{
 		String query = "SELECT password FROM project.user where email =?";
