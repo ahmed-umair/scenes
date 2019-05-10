@@ -6,7 +6,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="mainfeed.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 </head>
 
@@ -14,44 +15,45 @@
 	<nav class="navbar navbar-light " style="background-color: #2A0055;">
 		<div class="container col-sm-12">
 			<div class="container col-sm-3 float-left">
-				<a class="navbar-brand" href="#"><img src="logo.png" class="logo ml-auto"></a>	
+				<a class="navbar-brand" href="#"><img src="logo.png" class="logo ml-auto"></a>
 			</div>
-			
-			
+
+
 			<div class="container col d-block ">
 				<form class=" col-sm-12 form-inline">
 					<input type="text" name="searchBar" placeholder="Search bar..." class=" col search_bar ml-auto">
-					<button type="submit " class="search_bar" id="search_button"><i class="fa fa-search "></i></button>
+					<button type="submit " class="search_bar col-sm-2" id="search_button"><i
+							class="fa fa-search "></i></button>
 				</form>
 			</div>
-		<!-- PROFILE PICTURE -->
+			<!-- PROFILE PICTURE -->
 			<div class="float-right text-center col-sm-3">
 				<div class=" float-right">
-						<a href="logout.jsp"><img src="bandi.jpg" class="profile_picture"></a>
-						<label class="name d-block"><strong>Ivana Bouchard</strong></label>
+					<a href="logout.jsp"><img src="bandi.jpg" class="profile_picture"></a>
+					<label class="name d-block"><strong>Ivana Bouchard</strong></label>
 				</div>
 			</div>
 		</div>
 		<!-- NEECHE WAALI CHEEZEIN -->
 
-		<div id="icon_bar" class="container col-sm-10 justify-content-around">
+		<div id="icon_bar" class="container col-sm-6 justify-content-end">
 			<a href="#"><i class="fa fa-home fa-2x fa-fw neeche_button mr-auto"></i></a>
 			<a href="#"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto"></i></a>
 		</div>
-	</div>
+		</div>
 	</nav>
 	<br>
 	<br>
 	<br>
 	<!-- FOOTER -->
-	<div class="footer" style="background-color: #303030;">
+	<div class="footer container col-sm-12 justify-content-center" style="background-color: #303030;">
 
-		<div class="container col-sm-12">
-			<div class="col-sm-3 footer-logo d-block float-left">
+		<div class="row">
+			<div class="col-2 footer-logo d-block float-left ">
 				<img src="logo.png">
 			</div>
 
-			<div class="col-sm-6 links d-inline-block">
+			<div class="col links d-inline-block my-auto justify-content-around">
 				<a href="#">HOME</a>
 				<label for=""> | </label>
 				<a href="#">ABOUT</a>
@@ -61,7 +63,7 @@
 				<a href="#">CONTACT</a>
 			</div>
 
-			<div class="float-right col-sm-3">
+			<div class="float-right col-2 ">
 				<p style="letter-spacing: 1px;">JOIN OUR NEWSLETTER</p>
 				<form action="#" id="newsletter">
 					<input type="email" id="newsletter-input" class="col-sm-8">
@@ -70,9 +72,12 @@
 			</div>
 		</div>
 
-		<div class="credits">
-			<p>© Codeplay | All Right Reserved</p>
+		<div class="row">
+			<div class="credits col d-block">
+				<p>© Codeplay | All Right Reserved</p>
+			</div>
 		</div>
+
 	</div>
 
 </body>
