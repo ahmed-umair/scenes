@@ -1,0 +1,67 @@
+.navbar {
+	height: 210px;
+	opacity: 0%;
+}
+
+img {
+	width: 160px;
+	height: 160px;
+	margin-left: 28%;
+	margin-top: 0.9em; 
+}
+
+input {
+	margin-bottom: 10px;
+	margin-right: 20px;
+	height: 30px;
+	width: 100px;
+	background-color: #E0D2D2;
+	font-family: Maiandra GD;
+
+}
+
+form {
+	padding-right: 7%;
+}
+
+.form-control {
+	width: 260px;
+	border-radius: 1rem;
+	background-color: #E0D2D2;
+	font-size: 18px; 
+	padding-bottom: 10px; 
+	letter-spacing: 1px;
+}
+
+.normalText {
+	color: #94929D;
+	margin-bottom: 0.8em;
+}
+
+#signupSuggestion {
+	float: right;
+	font-size: 12px;
+	margin-right: 12px;
+	text-align: right;
+}
+
+.link {
+	color: white;
+	margin-bottom: 0.8em;
+}
+
+button {
+	float: right;
+	margin-right: 8px;	
+	border-radius: 1rem;
+	padding-bottom: 6px;
+}
+
+.btn {
+	border-radius: 1rem;
+	height: 100%;
+	font-size: 15px;
+	letter-spacing: 0.5em;
+	padding-left: 18px;
+	font-weight: 600;
+}
