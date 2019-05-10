@@ -1,0 +1,6 @@
+Final Implementation Notes:
+
+1) Single connection class
+2) All table names as Scenez_<TABLE NAME>
+3) Values of attributes obtained as array list an a method
+   get<Attribute>AsList
