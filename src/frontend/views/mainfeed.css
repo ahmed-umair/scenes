@@ -5,21 +5,21 @@
 .profile_picture {
   
   border-radius: 50%;
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
   margin-top: 0;
 }
 
 .navbar {
-	height: 210px;
+	/* height: 210px; */
 	opacity: 0%;
 }
 
 .logo {
-	width: 160px;
-	height: 160px;
-	margin-left: 28%;
-	margin-top: 0.9em; 
+	width: 120px;
+	height: 120px;
+	/* margin-left: 28%; */
+	/* margin-top: 0.9em;  */
 }
 
 .search_bar {
@@ -40,15 +40,12 @@
 	width: 50px;
 
 }
-
-.neeche {
-	margin-bottom: 0;
-}
 .neeche_button {
 	color: orange;
 }
  .name {
- 	align-items: center;
+	 align-items: center;
+	 color:#f1f1f1;
  }
 
  /* **************************** */
@@ -80,6 +77,7 @@
 	width:50px;
 	font-size: 0.8em;
 	letter-spacing: 2px;
+	
 }
 
 /* LINKS */
