@@ -18,7 +18,7 @@ public class Scenez_Connection {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");         //obtain jdbc driver class
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
+
 			e1.printStackTrace();
 		}
 		
@@ -46,7 +46,6 @@ public class Scenez_Connection {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");         //obtain jdbc driver class
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		dbConnection = null;
