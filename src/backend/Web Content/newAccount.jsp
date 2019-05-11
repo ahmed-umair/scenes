@@ -11,7 +11,7 @@
 <div class="container">
 <%
 	String fname="", lname="", email="", password="", gender="", date="";
-	int status = 0;  // 1 = creation success, 2 = invalid parameter, 3 = Query Execution Failure
+	int status = 0;  // 1 = creation success, 2 = invalid parameter, 3 = Query Execution Failure, 4 = email already exists
 	
 	if(request.getParameter("fname") != null){
 		fname = request.getParameter("fname");
@@ -56,14 +56,18 @@
 	}
 	
 	if(status !=2){
-		//Format Date for Insertion
 		
 		Scenes_USER user_table = new Scenes_USER();
-		if(user_table.addUser(fname, lname, email, password, date, gender,-1)){
-			response.sendRedirect("landing.jsp");
-		}
-		else
-			status = 3;
+		
+		// Check if email already exists
+		if(user_table.checkUniqueEmail(email) == true){		
+			if(user_table.addUser(fname, lname, email, password, date, gender,-1)){
+				response.sendRedirect("landing.jsp");
+			}
+			else
+				status = 3;
+		} else
+			status = 4;
 	}	
 %>
 
@@ -85,6 +89,15 @@
 	</div>
 	<button class="btn btn-default" onclick="location.href='newAccount.jsp'">Retry</button>
 <% } %>
+
+<% if (status == 4) { %>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <button type="button" class="close" onclick="location.href='newAccount.jsp'" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong>Account with entered Email already exists</strong> 
+</div>
+ <% } %>
 
 </div>
 </body>
