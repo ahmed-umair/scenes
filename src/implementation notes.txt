@@ -12,3 +12,6 @@ FRONTEND:
 	- border
 
 - submit button on signup
+
+BACKEND
+- encrypt password
