@@ -52,8 +52,27 @@
  /*           MAINFEED           */
  /* **************************** */
 
- #create-group-btn {
-	 background-color: #2A0055;
+/* .left-col {
+    position: absolute;
+} */
+
+ .my-btn {
+     background-color: #2A0055;
+     color: white;
+ }
+
+ /* POST */
+ .post > img {
+    width: 230px;
+    height: 230px;
+ }
+
+ .to-be-grey {
+     color: #4E4E4E;
+ }
+
+ .subheading {
+     font-size: 1.5rem;
  }
 
 
