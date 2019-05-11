@@ -44,7 +44,6 @@ public class Scenes_USER {
 			st.setString(4, pword);
 			st.setString(5, date);
 			st.setString(6, gender);
-			
 			st.executeQuery();
 			
 		} catch (SQLException e) {
@@ -153,6 +152,61 @@ public class Scenes_USER {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public String getFirstNameAsString(String email)
+	{
+		String query = "SELECT first_name FROM project.user WHERE email = ?";
+		try {
+			PreparedStatement st = s_con.getConnection().prepareStatement(query);
+			st.setString(1, email);
+			ResultSet rs = st.executeQuery();
+			while (rs.next())
+			{
+				return rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public String getLastNameAsString(String email)
+	{
+		String query = "SELECT last_name FROM project.user WHERE email = ?";
+		try {
+			PreparedStatement st = s_con.getConnection().prepareStatement(query);
+			st.setString(1, email);
+			ResultSet rs = st.executeQuery();
+			while (rs.next())
+			{
+				return rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public boolean checkUniqueEmail(String email) {
+		String query = "SELECT email FROM project.user WHERE email=?";
+		boolean isUnique = false;
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setString(1, email);
+			
+			ResultSet set = stmt.executeQuery();
+			
+			if (!set.isBeforeFirst()) {    
+			    isUnique = true;
+			} 
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return isUnique;
 	}
 	
 }
