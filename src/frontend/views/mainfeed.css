@@ -1,6 +1,6 @@
-/*.searchBar {*/
-	/*height: 20px;*/
-/*}*/
+ /* **************************** */
+ /* EVERYTHING RELATED TO HEADER */
+ /* **************************** */
 
 .profile_picture {
   
@@ -41,12 +41,19 @@
 
 }
 .neeche_button {
-	color: orange;
+	color: white;
 }
  .name {
 	 align-items: center;
 	 color:#f1f1f1;
  }
+
+ /* **************************** */
+ /*           MAINFEED           */
+ /* **************************** */
+
+
+
 
  /* **************************** */
  /* EVERYTHING RELATED TO FOOTER */
