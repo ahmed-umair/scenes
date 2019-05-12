@@ -32,15 +32,6 @@
 	letter-spacing: 0.25em;
 }
 
-.make-me-sticky {
-	position: -webkit-sticky;
-	position: sticky;
-	top: 7.5em;
-	height: 100%;
-	padding: 0 15px;
-	margin-bottom: 7.5em;
-  }
-
 #search_button {
 	margin: 0;
 	padding: auto;
@@ -179,3 +170,11 @@
 }
 
 
+.make-me-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7.5em;
+  height: 100%;
+  padding: 0 15px;
+  margin-bottom: 7.5em;
+}
