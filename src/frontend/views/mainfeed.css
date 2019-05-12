@@ -3,7 +3,6 @@
  /* **************************** */
 
 .profile_picture {
-  
   border-radius: 50%;
   width: 80px;
   height: 80px;
@@ -37,8 +36,6 @@
 	margin: 0;
 	padding: auto;
 	border-left: 0;
-	/* width: 50px; */
-
 }
 .neeche_button {
 	color: white;
@@ -80,8 +77,23 @@
      color: #4E4E4E;
  }
 
+ .tbp {
+     color: #2A0055;
+ }
+
  .subheading {
      font-size: 1.5rem;
+ }
+
+#create-group-btn {
+     /* color: orange; */
+     /* background-color: white; */
+     margin-left: 2.7em;
+     border-radius: ;
+ }
+
+ #see-more {
+     color: #2A0055;
  }
 
 

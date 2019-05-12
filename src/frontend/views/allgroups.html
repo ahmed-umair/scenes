@@ -2,10 +2,10 @@
 <html>
 
 <head>
-	<title>Home | Scenez</title>
+	<title>View All Groups | Scenez</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="mainfeed.css">
+	<link rel="stylesheet" type="text/css" href="allgroups.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
 		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
@@ -86,125 +86,31 @@
     <!-- *************** FEED *************** -->
     <div class="container-fluid col-lg-8 d-inline-block feed ">
         <div class="d-flex justify-content-between border-bottom align-items-center mt-4 mb-4 pb-4 ">
-            <h2 style="color: #4E4E4E; font-weight: 700;">Your Feed</h1>
-            <button class="btn btn-lg btn-outline-dark text-white d-flex float-right my-btn">Create Event</button>
+            <h2 style="color: #4E4E4E; font-weight: 700;">Your Groups</h1>
+            <button class="btn btn-lg btn-outline-dark text-white d-flex float-right my-btn">Create a Group</button>
         </div>
 
-        <!-- ALL POSTS -->
+        <!-- ALL GROUPS -->
     
         <div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
-            <img src="dancing.jpg" class="img-responsive d-inline-block mr-3 border border-dark" alt="Image">            
-            <div>
+            <div class="col-lg-12">
                 <div class="d-flex justify-content-between align-items-center">
-                    <p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
-                    <button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
+                    <!-- <p href="#" class="display-4 mb-1 ml-2 d-inline">Group Name</p> -->
+                    <a href="#" class="display-4 mb-1 ml-2 d-inline to-be-grey">Group Name</a>
+                    <button class="btn btn-sm float-right py-2 my-btn ">Open Group</button>
                 </div>
-                <p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel Robertson</a></p>
+                <p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Creator: </strong><a href="#">Creator's Name</a></p>
                 
-                <div class="row pl-2 mt-4">
-                    <div class="column col-lg-5 border-right ml-0 pl-4">
-                        <!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
-                        <div class="container pl-0">
-                            <p><strong class="to-be-grey">Location: </strong><span class="tbp">Bilkent</span></p>
-                            <p><strong class="to-be-grey">Date: </strong><span class="tbp"></span></p>
-                            <p><strong class="to-be-grey">Time: </strong><span class="tbp"></span></p>
-                        </div>
-                    </div>
-                    <div class="column col-lg-7">                        
-                        <div>
-                            <p class="tbp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.</p>
-                        </div>
-                    </div>                    
+                <div class="row pl-2 mt-4 ">                                        
+                        <div class="ml-4 pr-3">
+                            <h4 class="to-be-grey">Description</h3>
+                            <p class="tbp pl-5 w-100">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam id atque eos? Nulla nemo voluptas temporibus dolor ab rerum provident similique ad. Id tempore rerum quae, tempora doloremque pariatur, amet consectetur atque molestias quidem vero. Maiores, magnam atque laboriosam eius nemo aspernatur blanditiis architecto nesciunt sint, reiciendis quia et. Blanditiis.</p>
+                        </div>                    
                 </div>
             </div>
         </div>
+    </div>  
 
-        <div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
-                <img src="dancing.jpg" class="img-responsive d-inline-block mr-3 border border-dark" alt="Image">           
-                <div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
-                        <button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
-                    </div>
-                    <p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel Robertson</a></p>
-                    
-                    <div class="row pl-2 mt-4">
-                        <div class="column col-lg-5 border-right ml-0 pl-4">
-                            <!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
-                            <div class="container pl-0">
-                                <p><strong class="to-be-grey">Location: </strong><span>Bilkent</span></p>
-                                <p><strong class="to-be-grey">Date: </strong><span></span></p>
-                                <p><strong class="to-be-grey">Time: </strong><span></span></p>
-                            </div>
-                        </div>
-                        <div class="column col-lg-7">
-                            <!-- <p><strong class="to-be-grey subheading">Description</strong></p> -->
-                            <div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.</p>
-                            </div>
-                        </div>                    
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
-                    <img src="dancing.jpg" class="img-responsive d-inline-block mr-3 border border-dark" alt="Image">            
-                    <div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
-                            <button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
-                        </div>
-                        <p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel Robertson</a></p>
-                        
-                        <div class="row pl-2 mt-4">
-                            <div class="column col-lg-5 border-right ml-0 pl-4">
-                                <!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
-                                <div class="container pl-0">
-                                    <p><strong class="to-be-grey">Location: </strong><span>Bilkent</span></p>
-                                    <p><strong class="to-be-grey">Date: </strong><span></span></p>
-                                    <p><strong class="to-be-grey">Time: </strong><span></span></p>
-                                </div>
-                            </div>
-                            <div class="column col-lg-7">
-                                <!-- <p><strong class="to-be-grey subheading">Description</strong></p> -->
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.</p>
-                                </div>
-                            </div>                    
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
-                        <img src="dancing.jpg" class="img-responsive d-inline-block mr-3 border border-dark" alt="Image">            
-                        <div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
-                                <button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
-                            </div>
-                            <p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel Robertson</a></p>
-                            
-                            <div class="row pl-2 mt-4">
-                                <div class="column col-lg-5 border-right ml-0 pl-4">
-                                    <!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
-                                    <div class="container pl-0">
-                                        <p><strong class="to-be-grey">Location: </strong><span>Bilkent</span></p>
-                                        <p><strong class="to-be-grey">Date: </strong><span></span></p>
-                                        <p><strong class="to-be-grey">Time: </strong><span></span></p>
-                                    </div>
-                                </div>
-                                <div class="column col-lg-7">
-                                    <!-- <p><strong class="to-be-grey subheading">Description</strong></p> -->
-                                    <div>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.</p>
-                                    </div>
-                                </div>                    
-                            </div>
-                        </div>
-                    </div>
-
-
-    </div>
     
     
     
