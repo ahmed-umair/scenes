@@ -60,6 +60,19 @@
     margin-bottom: 7.5em;
   }
 
+  .tbp {
+    color: #2A0055;
+}
+
+.my-btn {
+    background-color: #2A0055;
+    color: white;
+}
+
+.tbg {
+    color: #4E4E4E;
+}
+
 /* **************************** */
  /* EVERYTHING RELATED TO FOOTER */
  /* **************************** */

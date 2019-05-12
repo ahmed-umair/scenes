@@ -6,3 +6,8 @@ html, body{
 .post-area {
     margin-bottom: 50px;
 }
+
+.vote-btn:hover {
+    background-color: #2A0055;
+    color: white;
+}
