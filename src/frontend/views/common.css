@@ -1,0 +1,136 @@
+ /* **************************** */
+ /* EVERYTHING RELATED TO HEADER */
+ /* **************************** */
+
+ .profile_picture {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-top: 0;
+  }
+  
+  .navbar {
+      /* height: 210px; */
+      opacity: 0%;
+  }
+  
+  .logo {
+      width: 80px;
+      height: 80px;
+      /* margin-left: 28%; */
+      /* margin-top: 0.9em;  */
+  }
+  
+  .search_bar {
+      height: 50px;
+      font-size: 20px;
+      font-family: Segoe UI;
+      background-color: #F6F1F1;
+      color: #5A4E4E;
+      border: 1px solid black;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+  }
+  
+  #search_button {
+      margin: 0;
+      padding: auto;
+      border-left: 0;
+  }
+
+  .neeche_button {
+      color: white;
+  }
+
+    .name {
+       align-items: center;
+       color:#f1f1f1;
+}
+
+/* **************************** */
+ /* EVERYTHING RELATED TO sticky sidebars */
+ /* **************************** */
+
+.make-me-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 7.5em;
+    height: 100%;
+    padding: 0 15px;
+    margin-bottom: 7.5em;
+  }
+
+/* **************************** */
+ /* EVERYTHING RELATED TO FOOTER */
+ /* **************************** */
+
+ footer {
+	height: 80px;
+	opacity: 0%;
+	position: relative;
+	width: 100%;
+	bottom: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 500;
+	font-size: 0.7em;
+	color: white;
+	padding-top: 10px;
+}
+
+/* NEWSLETTER */
+
+#newsletter-button, #newsletter-input {
+	color: white;
+	background-color: transparent;
+	border: solid 2px white;
+	/* display: inline-block; */
+}
+
+#newsletter-button {
+	width:50px;
+	font-size: 0.5em;
+	letter-spacing: 0.1em;
+	
+}
+
+/* LINKS */
+.links {
+	/* display: inline-block; */
+	text-align: center;
+	
+	/* position: relative; */
+	/* padding-top: 25px; 	IS THIS THE CORRECT WAY?!?! */
+}
+
+.links > a {
+	color: white;
+	letter-spacing: 0.2em;
+}
+
+.links > a:hover {
+	background-color: white;
+	color: #292929;
+}
+
+/* LOGO */
+
+.footer-logo > img {
+	width: 50px;
+	height: 50px;
+	float: left ;
+}
+
+.credits {
+	background-color: #202020;
+	color: white;
+	text-align: center;
+	height: 15px;
+	line-height: 15px;
+	color: #898989;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 0.7em;
+	font-weight: 500;
+}
+
+
+  
