@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="mainfeed.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
 		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
@@ -62,7 +63,7 @@
 			<div id="left-col" class="col-lg-12 ml-2 ">
 				<div id="groups" class="row d-flex col-lg-12 mt-4 mb-4 border-bottom pb-4">
 					<!-- <div> -->
-						<h5 class="to-be-grey "><strong>My Groups</strong></h5>	
+						<h5 class="tbg "><strong>My Groups</strong></h5>	
 					<!-- </div> -->
 					<nav class="nav flex-column">
 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a>
@@ -75,7 +76,7 @@
 					
 				</div>
 				<div id="pop-tags" class="row d-flex col-lg-12">
-					<h5 class="to-be-grey"><strong>Popular Tags</strong></h5>
+					<h5 class="tbg"><strong>Popular Tags</strong></h5>
 					<nav class="nav flex-column">
 						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Active</a>
 						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Link</a>
@@ -102,28 +103,55 @@
 
 			<div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
 				<img src="dancing.jpg" class="img-responsive d-inline-block mr-3 rounded border-dark" alt="Image">
-				<div>
+				<div class="col-sm-8">
 					<div class="d-flex justify-content-between align-items-center">
 						<p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
 						<button class="btn btn-sm btn-outline-dark float-right py-2 my-btn ">View Event Page</button>
 					</div>
-					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel
+					<p class="ml-2 pl-2 mb-2"><strong class="tbg">Event created by: </strong><a href="#">Rachel
 							Robertson</a></p>
 
 					<div class="row pl-2 mt-4">
 						<div class="column col-lg-5 border-right ml-0 pl-4">
-							<!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
+							<!-- <p class="mb-0"><strong class="tbg subheading">Details</strong></p> -->
 							<div class="container pl-0">
-								<p><strong class="to-be-grey">Location: </strong><span class="tbp">Bilkent</span></p>
-								<p><strong class="to-be-grey">Date: </strong><span class="tbp"></span></p>
-								<p><strong class="to-be-grey">Time: </strong><span class="tbp"></span></p>
+								<p><strong class="tbg">Location: </strong><span class="tbp">Bilkent</span></p>
+								<p><strong class="tbg">Date: </strong><span class="tbp"></span></p>
+								<p><strong class="tbg">Time: </strong><span class="tbp"></span></p>
 							</div>
 						</div>
 						<div class="column col-lg-7">
 							<div>
-								<p class="tbp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime
-									nobis
-									fugit.</p>
+								<p class="tbp">Lorem, ipsum.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
+				<img src="dancing.jpg" class="img-responsive d-inline-block mr-3 border border-dark" alt="Image">
+				<div class="col-sm-8">
+					<div class="d-flex justify-content-between align-items-center">
+						<p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
+						<button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
+					</div>
+					<p class="ml-2 pl-2 mb-2"><strong class="tbg">Event created by: </strong><a href="#">Rachel
+							Robertson</a></p>
+
+					<div class="row pl-2 mt-4">
+						<div class="column col-lg-5 border-right ml-0 pl-4">
+							<!-- <p class="mb-0"><strong class="tbg subheading">Details</strong></p> -->
+							<div class="container pl-0">
+								<p><strong class="tbg">Location: </strong><span>Bilkent</span></p>
+								<p><strong class="tbg">Date: </strong><span></span></p>
+								<p><strong class="tbg">Time: </strong><span></span></p>
+							</div>
+						</div>
+						<div class="column col-lg-7">
+							<!-- <p><strong class="tbg subheading">Description</strong></p> -->
+							<div>
+								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, voluptates distinctio tenetur sequi placeat eligendi ut atque explicabo repellat vel inventore. Sit expedita alias ipsa fugit aliquam porro debitis nemo? Totam exercitationem nostrum nihil adipisci tenetur vero deleniti harum aliquam provident. Unde ex, aspernatur consectetur debitis non voluptas dignissimos, nisi voluptate rerum architecto fugiat quos provident error iusto at culpa.</p>
 							</div>
 						</div>
 					</div>
@@ -137,50 +165,20 @@
 						<p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
 						<button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
 					</div>
-					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel
+					<p class="ml-2 pl-2 mb-2"><strong class="tbg">Event created by: </strong><a href="#">Rachel
 							Robertson</a></p>
 
 					<div class="row pl-2 mt-4">
 						<div class="column col-lg-5 border-right ml-0 pl-4">
-							<!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
+							<!-- <p class="mb-0"><strong class="tbg subheading">Details</strong></p> -->
 							<div class="container pl-0">
-								<p><strong class="to-be-grey">Location: </strong><span>Bilkent</span></p>
-								<p><strong class="to-be-grey">Date: </strong><span></span></p>
-								<p><strong class="to-be-grey">Time: </strong><span></span></p>
+								<p><strong class="tbg">Location: </strong><span>Bilkent</span></p>
+								<p><strong class="tbg">Date: </strong><span></span></p>
+								<p><strong class="tbg">Time: </strong><span></span></p>
 							</div>
 						</div>
 						<div class="column col-lg-7">
-							<!-- <p><strong class="to-be-grey subheading">Description</strong></p> -->
-							<div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
-				<img src="dancing.jpg" class="img-responsive d-inline-block mr-3 border border-dark" alt="Image">
-				<div>
-					<div class="d-flex justify-content-between align-items-center">
-						<p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
-						<button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
-					</div>
-					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel
-							Robertson</a></p>
-
-					<div class="row pl-2 mt-4">
-						<div class="column col-lg-5 border-right ml-0 pl-4">
-							<!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
-							<div class="container pl-0">
-								<p><strong class="to-be-grey">Location: </strong><span>Bilkent</span></p>
-								<p><strong class="to-be-grey">Date: </strong><span></span></p>
-								<p><strong class="to-be-grey">Time: </strong><span></span></p>
-							</div>
-						</div>
-						<div class="column col-lg-7">
-							<!-- <p><strong class="to-be-grey subheading">Description</strong></p> -->
+							<!-- <p><strong class="tbg subheading">Description</strong></p> -->
 							<div>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.
 								</p>
@@ -197,20 +195,20 @@
 						<p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
 						<button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
 					</div>
-					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel
+					<p class="ml-2 pl-2 mb-2"><strong class="tbg">Event created by: </strong><a href="#">Rachel
 							Robertson</a></p>
 
 					<div class="row pl-2 mt-4">
 						<div class="column col-lg-5 border-right ml-0 pl-4">
-							<!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
+							<!-- <p class="mb-0"><strong class="tbg subheading">Details</strong></p> -->
 							<div class="container pl-0">
-								<p><strong class="to-be-grey">Location: </strong><span>Bilkent</span></p>
-								<p><strong class="to-be-grey">Date: </strong><span></span></p>
-								<p><strong class="to-be-grey">Time: </strong><span></span></p>
+								<p><strong class="tbg">Location: </strong><span>Bilkent</span></p>
+								<p><strong class="tbg">Date: </strong><span></span></p>
+								<p><strong class="tbg">Time: </strong><span></span></p>
 							</div>
 						</div>
 						<div class="column col-lg-7">
-							<!-- <p><strong class="to-be-grey subheading">Description</strong></p> -->
+							<!-- <p><strong class="tbg subheading">Description</strong></p> -->
 							<div>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.
 								</p>
@@ -232,7 +230,7 @@
 		<div class="container d-flex justify-content-start border-left float-right col-lg-2 make-me-sticky">
 			<div id="right-col" class="col-lg-12 mr-2 ">
 				<div id="trending-events" class="row d-flex col-lg-12 mt-4 mb-4 border-bottom pb-4">
-					<h5 class="to-be-grey"><strong>My Events</strong></h5>
+					<h5 class="tbg"><strong>My Events</strong></h5>
 					<nav class="nav flex-column">
 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a>
 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
@@ -241,7 +239,7 @@
 					</nav>
 				</div>
 				<div id="chat" class="row d-flex col-lg-12">
-					<h5 class="to-be-grey"><strong>Chats Here</strong></h5>
+					<h5 class="tbg"><strong>Chats Here</strong></h5>
 					<nav class="nav flex-column">
 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a>
 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
