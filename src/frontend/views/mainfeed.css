@@ -57,10 +57,10 @@
     position: fixed;
 } */
 
-.feed {
+/* .feed {
     overflow-y: scroll;
     
-}
+} */
 
  .my-btn {
      background-color: #2A0055;
@@ -89,7 +89,6 @@
      /* color: orange; */
      /* background-color: white; */
      margin-left: 2.7em;
-     border-radius: ;
  }
 
  #see-more {
@@ -171,3 +170,11 @@
 }
 
 
+.make-me-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7.5em;
+  height: 100%;
+  padding: 0 15px;
+  margin-bottom: 7.5em;
+}
