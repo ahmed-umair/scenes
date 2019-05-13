@@ -69,6 +69,11 @@
     color: white;
 }
 
+.my-btn:hover {
+    background-color: white;
+    color: #2A0055;
+}
+
 .tbg {
     color: #4E4E4E;
 }
