@@ -1,6 +1,11 @@
-Chat --> Dawood
-View Group -->Umair
-Create Event ---> Umair
-Send Invites---> Dawood
-User Profile ---> Dawood
-Notification Page --> Umair
+Chat                ---> Dawood
+View Group          ---> Umair DONE
+Create Event        ---> Umair DONE
+Send Invites        ---> Dawood
+User Profile        ---> Dawood
+Notification Page   ---> Umair ONGOING
+
+-pages related to people ---> UMAIR
+---view all friends         
+---view all members of a group
+---view all attendees for an event
