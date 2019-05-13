@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" type="text/css" href="common.css">
-    <link rel="stylesheet" type="text/css" href="view_event.css">
+    <link rel="stylesheet" type="text/css" href="view_notifications.css">
     <title>View Event | Scenez</title>
 </head>
 
@@ -44,17 +44,20 @@
                 <div class="text-center col-sm-2">
                     <div class=" float-right">
                         <a href="logout.jsp"><img src="bandi.jpg" class="profile_picture"></a>
-                        <label class="name d-block"><strong><div class="dropdown show">
-                                <a class="name dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 Ivana Bouchard
-                                </a>
-                              
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <a class="dropdown-item" href="#">Action</a>
-                                  <a class="dropdown-item" href="#">Another action</a>
-                                  <a class="dropdown-item" href="#">Something else here</a>
+                        <label class="name d-block"><strong>
+                                <div class="dropdown show">
+                                    <a class="name dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ivana Bouchard
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
                                 </div>
-                              </div></strong></label>
+                            </strong></label>
                     </div>
                 </div>
             </div>
@@ -93,6 +96,41 @@
                     <a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Disabled</a>
                 </nav>
             </div>
+        </div>
+    </div>
+
+    <div class="container-fluid align-items-start col-sm-8 d-inline-block">
+        <div class="col tbg mx-auto">
+            <h3>Notifications</h3>
+        </div>
+        <div id="notification-list" class="list-group col-sm-10 mx-auto">
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
+                    blandit.</p>
+                <small>Donec id elit non mi porta.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
+                    blandit.</p>
+                <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
+                    blandit.</p>
+                <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
         </div>
     </div>
     <!-- *************** RIGHT COLUMN *************** -->
