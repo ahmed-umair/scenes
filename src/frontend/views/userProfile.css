@@ -1,0 +1,11 @@
+#user-profile-picture {
+	width: 210px;
+	height: 210px;
+	border-radius: 50%;
+	border: 2px solid #2A0055;
+}
+
+#event-status {
+	letter-spacing: 2px; 
+	font-weight: 300;
+}

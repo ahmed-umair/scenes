@@ -15,3 +15,11 @@ FRONTEND:
 
 BACKEND
 - encrypt password
+
+Pages that need to be made:
+-Chat page needs to be made
+-Groups view to be made
+-View all friends
+-View all members of group
+-View all people attenders
+-Settings page

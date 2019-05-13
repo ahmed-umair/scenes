@@ -69,10 +69,28 @@
     color: white;
 }
 
+.reverse-btn {
+    background-color: white;
+    color: #2A0055;
+    border: 1px solid grey; 
+    font-weight: 500;
+    /* border-radius: 20%; */
+}
+
+.reverse-btn:hover {
+    background-color: #2A0055;
+    color: white;
+}
+
 .my-btn:hover {
     background-color: white;
     color: #2A0055;
 }
+
+.post > img {
+    width: 230px;
+    height: 230px;
+ }
 
 .tbg {
     color: #4E4E4E;
