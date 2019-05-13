@@ -19,7 +19,7 @@ public class Scenez_EVENT {
 	//Get Methods for attributes, return as ArrayList
 	
 	// Get Ids
-	public ArrayList<String>getIdAsList(){
+	public ArrayList<String> getIdAsList(){
 		
 		ArrayList<String> ids = new ArrayList<String>();
 		try {
@@ -84,6 +84,37 @@ public class Scenez_EVENT {
 		
 	}
 	
+	public ArrayList<Scenez_EventBean> getAllEventBeansAsList()
+	{
+		String query = "Select * FROM project.event";
+		ArrayList<Scenez_EventBean> events = new ArrayList<Scenez_EventBean>();
+		
+		try {
+			Statement st = s_con.getConnection().createStatement();
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next())
+			{
+				Scenez_EventBean currentEvent = new Scenez_EventBean();
+				currentEvent.setId(rs.getInt(1));
+				currentEvent.setName(rs.getString(2));
+				currentEvent.setStart_time(rs.getString(3));
+				currentEvent.setDuration(rs.getDouble(4));
+				currentEvent.setPrivacy(rs.getString(5));
+				currentEvent.setCapacity(rs.getInt(6));
+				currentEvent.setDescription(rs.getString(7));
+				currentEvent.setEmail(rs.getString(8));
+				currentEvent.setCat_name(rs.getString(9));
+				currentEvent.setLocation_id(rs.getInt(10));
+				currentEvent.setEvent_date(rs.getString(11));
+				
+				events.add(currentEvent);
+			}
+			return events;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	
 	public static void main(String[] args) {
