@@ -1,3 +1,5 @@
+<%@page import="backend.Friend_Pair"%>
+<%@page import="backend.Scenez_IS_FRIENDS_WITH"%>
 <%@page import="backend.Scenez_LOCATION"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="backend.Scenez_EventBean"%>
@@ -27,6 +29,7 @@
 	Scenez_EVENT event_Data = new Scenez_EVENT();
 	Scenez_LOCATION location_data = new Scenez_LOCATION();
 	Scenez_EventTag tag_data = new Scenez_EventTag();
+	Scenez_IS_FRIENDS_WITH friends_data = new Scenez_IS_FRIENDS_WITH();
 %>
 	<nav class="navbar navbar-light d-flex sticky-top border" style="background-color: #2A0055;">
 		<div class="container col-sm-12 d-flex justify-content-between">
@@ -210,12 +213,25 @@
 					</nav>
 				</div>
 				<div id="chat" class="row d-flex col-lg-12">
-					<h5 class="to-be-grey"><strong>Chats Here</strong></h5>
+					<h5 class="to-be-grey"><strong>Chats</strong></h5>
 					<nav class="nav flex-column">
-						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a>
-						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
-						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
-						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Disabled</a>
+<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a> -->
+<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a> -->
+<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a> -->
+<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Disabled</a> -->
+							<%
+								ArrayList<Friend_Pair> users_friends = friends_data.getAllFriendsAsList(session.getAttribute("email").toString());
+								for (int i = 0; i < users_friends.size(); i++)
+								{
+									
+							%>
+								<% if (users_friends.get(i).getRequester().equals(session.getAttribute("email").toString())) { %>
+									<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> <%= usr_data.getFirstNameAsString(users_friends.get(i).getRequested()) + usr_data.getLastNameAsString(users_friends.get(i).getRequested())%></a>
+								<% } else {%>
+									<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> <%= usr_data.getFirstNameAsString( users_friends.get(i).getRequester()) + usr_data.getLastNameAsString(users_friends.get(i).getRequested())%></a>
+								<% } %>
+									
+							<%  } %>
 					</nav>
 				</div>
 			</div>
