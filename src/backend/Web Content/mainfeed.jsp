@@ -1,6 +1,10 @@
+<%@page import="backend.Scenez_LOCATION"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="backend.Scenez_EventBean"%>
 <%@page import="backend.Scenes_USER"%>
 <%@page import="backend.Scenez_grp_invite"%>
 <%@page import="backend.Scenez_EVENT"%>
+<%@page import="backend.Scenez_EventTag"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -21,6 +25,8 @@
 	Scenes_USER usr_data = new Scenes_USER();
 	Scenez_grp_invite grp_data = new Scenez_grp_invite();
 	Scenez_EVENT event_Data = new Scenez_EVENT();
+	Scenez_LOCATION location_data = new Scenez_LOCATION();
+	Scenez_EventTag tag_data = new Scenez_EventTag();
 %>
 	<nav class="navbar navbar-light d-flex sticky-top border" style="background-color: #2A0055;">
 		<div class="container col-sm-12 d-flex justify-content-between">
@@ -82,14 +88,17 @@
 <!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a> -->
 <!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Disabled</a> -->							
 							<%
-							for (int i = 0; i < grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).size(); i++  )
+							int x = 0;
+							for (; x < grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).size(); x++  )
 							{
-								if (i > 4)
+								if (x > 4)
 									break;
 							%>
-							<a class="nav-link disabled row" href="#"><i class="fas fa-users"></i> <%= grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).get(i) %></a>
+							<a class="nav-link disabled row" href="#"><i class="fas fa-users"></i> <%= grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).get(x) %></a>
 							<% } %>
+						<% if(x > 4){ %>
 						<a href="#" id="see-more" class="mt-2"><strong>See more</strong></a>
+						<% } %>
 					</nav>
 					<button id="create-group-btn"
 							class="btn btn-sm btn-outline-dark text-white mt-3 ml-auto float-right my-btn">Create Group</button>
@@ -97,10 +106,18 @@
 				<div id="pop-tags" class="row d-flex col-lg-12">
 					<h5 class="to-be-grey"><strong>Popular Tags</strong></h5>
 					<nav class="nav flex-column">
-						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Active</a>
-						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Link</a>
-						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Link</a>
-						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Disabled</a>
+<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Active</a> -->
+<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Link</a> -->
+<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Link</a> -->
+<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Disabled</a> -->
+							<%
+							for (int i = 0; i < tag_data.getPopularTagsAsList().size(); i++)
+							{
+								if (i > 4)
+									break;
+							%>
+							<a class="nav-link disabled row" href="#"><i class="fas fa-hashtag"></i> <%= tag_data.getPopularTagsAsList().get(i) %></a>
+							<% } %>
 					</nav>
 				</div>
 			</div>
@@ -119,129 +136,52 @@
 			</div>
 
 			<!-- ALL POSTS -->
+			<%
+				ArrayList<Scenez_EventBean> allEvents = new ArrayList<Scenez_EventBean>();
+				allEvents = event_Data.getAllEventBeansAsList();
+				Iterator<Scenez_EventBean> it = allEvents.iterator();
+				
+				while (it.hasNext())
+				{
+					Scenez_EventBean currentEvent = it.next();
+			%>
 
 			<div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
 				<img src="dancing.jpg" class="img-responsive d-inline-block mr-3 rounded border-dark" alt="Image">
-				<div>
+				<div class="col-sm-8">
 					<div class="d-flex justify-content-between align-items-center">
-						<p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
-						<button class="btn btn-sm btn-outline-dark float-right py-2 my-btn ">View Event Page</button>
+					<a href="#" class="display-4 mb-1 ml-2 d-inline to-be-grey"><%= currentEvent.getName() %></a>
 					</div>
-					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel
-							Robertson</a></p>
+					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">
+						<%= usr_data.getFirstNameAsString(currentEvent.getEmail()) + " " +  usr_data.getLastNameAsString(currentEvent.getEmail())%>
+					</a></p>
 
 					<div class="row pl-2 mt-4">
 						<div class="column col-lg-5 border-right ml-0 pl-4">
 							<!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
 							<div class="container pl-0">
-								<p><strong class="to-be-grey">Location: </strong><span class="tbp">Bilkent</span></p>
-								<p><strong class="to-be-grey">Date: </strong><span class="tbp"></span></p>
-								<p><strong class="to-be-grey">Time: </strong><span class="tbp"></span></p>
+								<p><strong class="to-be-grey">Location: </strong><span class="tbp"><%= location_data.getLocationSpecificsByID(currentEvent.getLocation_id()) %></span></p>
+								<p><strong class="to-be-grey">Date: </strong><span class="tbp"><%= currentEvent.getEvent_date() %></span></p>
+								<p><strong class="to-be-grey">Time: </strong><span class="tbp"><%= currentEvent.getStart_time() %></span></p>
 							</div>
 						</div>
 						<div class="column col-lg-7">
 							<div>
-								<p class="tbp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime
-									nobis
-									fugit.</p>
+							<% if (currentEvent.getDescription().length() < 50) { %>
+								<p class="tbp"><%= currentEvent.getDescription() %></p>
+							<% } else { %>
+								<p class="tbp"><%= currentEvent.getDescription().substring(0, Math.min(currentEvent.getDescription().length(), 180)) + ". . ." %></p>
+							<% } %>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<%
+				}
+			%>
 
-			<div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
-				<img src="dancing.jpg" class="img-responsive d-inline-block mr-3 border border-dark" alt="Image">
-				<div>
-					<div class="d-flex justify-content-between align-items-center">
-						<p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
-						<button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
-					</div>
-					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel
-							Robertson</a></p>
-
-					<div class="row pl-2 mt-4">
-						<div class="column col-lg-5 border-right ml-0 pl-4">
-							<!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
-							<div class="container pl-0">
-								<p><strong class="to-be-grey">Location: </strong><span>Bilkent</span></p>
-								<p><strong class="to-be-grey">Date: </strong><span></span></p>
-								<p><strong class="to-be-grey">Time: </strong><span></span></p>
-							</div>
-						</div>
-						<div class="column col-lg-7">
-							<!-- <p><strong class="to-be-grey subheading">Description</strong></p> -->
-							<div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
-				<img src="dancing.jpg" class="img-responsive d-inline-block mr-3 border border-dark" alt="Image">
-				<div>
-					<div class="d-flex justify-content-between align-items-center">
-						<p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
-						<button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
-					</div>
-					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel
-							Robertson</a></p>
-
-					<div class="row pl-2 mt-4">
-						<div class="column col-lg-5 border-right ml-0 pl-4">
-							<!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
-							<div class="container pl-0">
-								<p><strong class="to-be-grey">Location: </strong><span>Bilkent</span></p>
-								<p><strong class="to-be-grey">Date: </strong><span></span></p>
-								<p><strong class="to-be-grey">Time: </strong><span></span></p>
-							</div>
-						</div>
-						<div class="column col-lg-7">
-							<!-- <p><strong class="to-be-grey subheading">Description</strong></p> -->
-							<div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="container-fluid d-flex align-items-start post mt-5 pl-3 pb-5 border-bottom ">
-				<img src="dancing.jpg" class="img-responsive d-inline-block mr-3 border border-dark" alt="Image">
-				<div>
-					<div class="d-flex justify-content-between align-items-center">
-						<p class="display-4 mb-1 ml-2 d-inline">Dance Party</p>
-						<button class="btn btn-sm float-right py-2 my-btn ">View Event Page</button>
-					</div>
-					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">Rachel
-							Robertson</a></p>
-
-					<div class="row pl-2 mt-4">
-						<div class="column col-lg-5 border-right ml-0 pl-4">
-							<!-- <p class="mb-0"><strong class="to-be-grey subheading">Details</strong></p> -->
-							<div class="container pl-0">
-								<p><strong class="to-be-grey">Location: </strong><span>Bilkent</span></p>
-								<p><strong class="to-be-grey">Date: </strong><span></span></p>
-								<p><strong class="to-be-grey">Time: </strong><span></span></p>
-							</div>
-						</div>
-						<div class="column col-lg-7">
-							<!-- <p><strong class="to-be-grey subheading">Description</strong></p> -->
-							<div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maxime nobis fugit.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
+		</div>       <!-- Feed div ends here -->
 
 
 
@@ -252,7 +192,7 @@
 		<div class="container d-flex justify-content-start border-left float-right col-lg-2 make-me-sticky">
 			<div id="right-col" class="col-lg-12 mr-2 ">
 				<div id="trending-events" class="row d-flex col-lg-12 mt-4 mb-4 border-bottom pb-4">
-					<h5 class="to-be-grey"><strong>Trending Events</strong></h5>
+					<h5 class="to-be-grey"><strong>My Events</strong></h5>
 					<nav class="nav flex-column">
 <!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a> -->
 <!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a> -->
