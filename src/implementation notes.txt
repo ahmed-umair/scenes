@@ -23,3 +23,11 @@ Pages that need to be made:
 -View all members of group
 -View all people attenders
 -Settings page (DAWOOD)
+
+Add this constructor in all Java classes
+
+public <CLASS_NAME>(Connection con)
+{
+	s_con = new Scenez_Connection(con);
+}
+
