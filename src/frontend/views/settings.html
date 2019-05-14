@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
 		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="common.css">
-    <link rel="stylesheet" type="text/css" href="createGroup.css">
+    <link rel="stylesheet" type="text/css" href="settings.css">
 </head>
 
 <body>
@@ -94,31 +94,41 @@
 		<!-- *************** FORM *************** -->
 		<div class="container col-sm-8 mt-0 d-inline-block">
                 <div class=" mt-4 mb-4 pb-0 ">
-                    <h2 style="color: #4E4E4E; font-weight: 700;">Create your own group</h1>
+                    <h2 style="color: #4E4E4E; font-weight: 700;">Account Settings</h1>
                 </div>
                 <hr>
-            <div class="container col-sm-9 ">
-                <form action="#">
-                    <div class="row mt-4">
-                        <div class="col">
-                            <label for="" class="mr-4 tbg col"><h4>Group Name: </h4></label>
-                        </div>
-                        <div class="col-sm-8">
-                            <input type="text" name="group-name" required maxlength="75" class="w-100 mb-3 col">
-                        </div>
-                    </div>
+            <div class="container col-sm-9 d-flex justify-content-around align-items-center">
+				<form action="">
+					<h2 class="tbg display-4">Change Profile Picture</h2>
+					<div class="ml-5">
+						<div class="row mb-4 d-flex align-items-center">
+							<label for="" class="mr-4 tbg col"><h4>Profile Picture: </h4></label>
+							<img src="bandi.jpg" alt="" class="img-thumbnail chat-thumb mr-2 profile-pic-thumb d-block">
+							<input type="file" name="profile-pic" id="" class="rounded">
+						</div>
+					</div>	
+					<h2 class="tbg display-4">Change Email Address</h2>
+					<div class="ml-5">
+						<div class="row mb-4 d-flex align-items-center">
+							<label for="" class="mr-4 tbg col"><h4>New e-mail address: </h4></label>
+							<input type="text" class="input-field rounded"> <!-- Yahan pe database se load hua houga email address -->
+						</div>
+					</div>
+					<h2 class="tbg display-4">Change Password</h2>
+					<div class="ml-5">
+						<div class="row mb-4 d-flex align-items-center">
+							<label for="" class="mr-4 tbg col"><h4>Enter new password </h4></label>
+							<input type="text" class="input-field rounded">
+						</div>
+						<div class="row mb-4 d-flex align-items-center">
+							<label for="" class="mr-4 tbg col"><h4>Re-enter new Password </h4></label>
+							<input type="text" class="input-field rounded">
+						</div>		
+					</div>		
                     <br>
-                    <div class="row">
-                        <div class="col">
-                            <label for="" class="mr-4 tbg col"><h4>Description: </h4></label>
-                        </div>
-                        <div class="col-sm-8">
-                            <textarea name="group-description col" id="" cols="50" rows="5" style="vertical-align: top;" maxlength="3000"></textarea>
-                        </div>
-                    </div>
                     <div class="container col-sm-4 mt-5 d-flex justify-content-start">
-                        <button class="btn btn-lg d-flex d-inline mr-5 btn-outline-dark text-white my-btn">Create</button>
-                        <button class="btn btn-lg btn-outline-dark text-white d-flex ml-5 my-btn">Cancel</button>
+                        <button class="btn btn-lg d-flex d-inline mr-5 btn-outline-dark my-btn">Confirm</button>
+                        <button class="btn btn-lg btn-outline-dark d-flex ml-5 my-btn">Cancel</button>
                     </div>
                 </form>
             </div>

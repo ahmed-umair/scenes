@@ -1,0 +1,11 @@
+.profile-pic-thumb {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	/* border: 1px dashed #2A0055; */
+}
+
+.input-field {
+        border: solid 1px #4e4e4e;
+        
+}
