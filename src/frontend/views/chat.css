@@ -42,7 +42,9 @@
 
 /* ******************** */
 
-.type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+.type_msg {border-top: 1px solid #c4c4c4;
+	/* position: relative; */
+}
 
 .input_msg_write input {
 	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
@@ -62,10 +64,10 @@
 	cursor: pointer;
 	font-size: 17px;
 	height: 33px;
-	position: absolute;
+	/* position: absolute;
 	right: 0;
 	top: 11px;
-	width: 33px;
+	width: 33px; */
   }
 
  
