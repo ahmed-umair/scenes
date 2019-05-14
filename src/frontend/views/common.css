@@ -111,6 +111,7 @@
 .my-btn:hover {
     background-color: white;
     color: #2A0055;
+    border: 1px solid #2A0055;
 }
 
 .post > img {

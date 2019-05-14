@@ -17,12 +17,12 @@ BACKEND
 - encrypt password
 
 Pages that need to be made:
--Chat page needs to be made (DAWOOD) (DONE)
--Groups view to be made (DAWOOD)
--View all friends (UMAIR) (DONE)
--View all members of group
--View all people attenders
--Settings page (DAWOOD) (DONE)
+- 	Chat page needs to be made (DAWOOD) (DONE)
+- 	Groups view to be made (DAWOOD)
+- 	View all friends (UMAIR) (DONE)
+- 	View all members of group (DONE)
+- 	View all people attender (DONE)
+- 	Settings page (DAWOOD) (DONE)
 
 Add this constructor in all Java classes
 
