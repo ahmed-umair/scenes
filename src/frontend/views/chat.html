@@ -92,7 +92,7 @@
 
 
 		<!-- *************** FEED *************** -->
-		<div class="container col-lg-8 d-inline-block chat">
+		<div class="container col-lg-8 d-inline-block ">
 			<!-- Chat ka header -->
 			<div class="d-flex justify-content-around">
 				<div class="row d-flex align-items-center">
@@ -102,25 +102,73 @@
 			</div> <!-- end of header  -->
 			
 			<hr>
-			<div class="row d-flex align-items-center">
-				<a href="#" class="pl-3"><img src="david.jpg" alt="" class="img-thumbnail chat-thumb mr-2"></a> <!-- Image and link to profile- backend -->
-				<p id="sender-chat" class="rounded px-3 my-0">Masna ne khana khatam kiya?</p>
-			</div>
 
-			<div class="row d-flex align-items-center justify-content-end">
-				<p id="receiver-chat" class="rounded px-3 my-0 mr-2">Nahi, ek aur hikkie le raha hai filhal.</p>
-				<a href="#" class="pr-3"><img src="bandi.jpg" alt="" class="img-thumbnail chat-thumb "></a> <!-- Image and link to profile- backend -->			
+			<!-- Actual chat -->
+			<div class="chat">
+				<div class="row d-flex align-items-center">
+					<a href="#" class="pl-3"><img src="david.jpg" alt="" class="img-thumbnail chat-thumb mr-2"></a> <!-- Image and link to profile- backend -->
+					<p id="sender-chat" class="rounded px-3 my-0">Masna ne khana khatam kiya?</p>
+				</div>
+
+				<div class="row d-flex align-items-center justify-content-end">
+					<p id="receiver-chat" class="rounded px-3 my-0 mr-2">Nahi, ek aur hikkie le raha hai filhal.</p>
+					<a href="#" class="pr-3"><img src="bandi.jpg" alt="" class="img-thumbnail chat-thumb "></a> <!-- Image and link to profile- backend -->			
+				</div>
+
+				<!-- EXTRA -->
+				<div class="row d-flex align-items-center">
+					<a href="#" class="pl-3"><img src="david.jpg" alt="" class="img-thumbnail chat-thumb mr-2"></a> <!-- Image and link to profile- backend -->
+					<p id="sender-chat" class="rounded px-3 my-0">Aur sunao sab set?</p>
+				</div>
+
+				<div class="row d-flex align-items-center justify-content-end">
+					<p id="receiver-chat" class="rounded px-3 my-0 mr-2">Theek thaak</p>
+					<a href="#" class="pr-3"><img src="bandi.jpg" alt="" class="img-thumbnail chat-thumb "></a> <!-- Image and link to profile- backend -->			
+				</div>
+
+				<div class="row d-flex align-items-center">
+					<a href="#" class="pl-3"><img src="david.jpg" alt="" class="img-thumbnail chat-thumb mr-2"></a> <!-- Image and link to profile- backend -->
+					<p id="sender-chat" class="rounded px-3 my-0">Fazool ki chat</p>
+				</div>
+
+				<div class="row d-flex align-items-center justify-content-end">
+					<p id="receiver-chat" class="rounded px-3 my-0 mr-2">Tum fazool</p>
+					<a href="#" class="pr-3"><img src="bandi.jpg" alt="" class="img-thumbnail chat-thumb "></a> <!-- Image and link to profile- backend -->			
+				</div>
+
+				<div class="row d-flex align-items-center">
+					<a href="#" class="pl-3"><img src="david.jpg" alt="" class="img-thumbnail chat-thumb mr-2"></a> <!-- Image and link to profile- backend -->
+					<p id="sender-chat" class="rounded px-3 my-0">No u</p>
+				</div>
+
+				<div class="row d-flex align-items-center justify-content-end">
+					<p id="receiver-chat" class="rounded px-3 my-0 mr-2">Noh u</p>
+					<a href="#" class="pr-3"><img src="bandi.jpg" alt="" class="img-thumbnail chat-thumb "></a> <!-- Image and link to profile- backend -->			
+				</div>
+
+				<div class="row d-flex align-items-center">
+					<a href="#" class="pl-3"><img src="david.jpg" alt="" class="img-thumbnail chat-thumb mr-2"></a> <!-- Image and link to profile- backend -->
+					<p id="sender-chat" class="rounded px-3 my-0">Okz bye</p>
+				</div>
+
+				<div class="row d-flex align-items-center justify-content-end">
+					<p id="receiver-chat" class="rounded px-3 my-0 mr-2">lolzie</p>
+					<a href="#" class="pr-3"><img src="bandi.jpg" alt="" class="img-thumbnail chat-thumb "></a> <!-- Image and link to profile- backend -->			
+				</div>
+
+				<div class="row d-flex align-items-center">
+					<a href="#" class="pl-3"><img src="david.jpg" alt="" class="img-thumbnail chat-thumb mr-2"></a> <!-- Image and link to profile- backend -->
+					<p id="sender-chat" class="rounded px-3 my-0">Fuck you</p>
+				</div>
+
+				<div class="row d-flex align-items-center justify-content-end">
+					<p id="receiver-chat" class="rounded px-3 my-0 mr-2">Tomorrow, 3PM</p>
+					<a href="#" class="pr-3"><img src="bandi.jpg" alt="" class="img-thumbnail chat-thumb "></a> <!-- Image and link to profile- backend -->			
+				</div>
 			</div>
-			<!-- Chat Box -->
-			<!-- <div class="col-lg-8 ">
-				<form action="" class="form-inline">
-					<div class="row">
-						<input type="text" placeholder="Type your message here..." class="col-sm-9 mx-auto">
-						<button class="btn btn-md reverse-btn mx-auto">Send</button>
-					</div>
-				</form>
-			</div> -->
-			<div class="type_msg fixed-bottom">
+			
+			<!-- CHAT INPUT -->
+			<div class="type_msg chatBox mt-3 fixed-bottom">
 				<div class="input_msg_write">
 					<input type="text" class="write_msg" placeholder="Type a message" />
 					<button class="msg_send_btn" type="button"><i class="fas fa-paper-plane mr-2" aria-hidden="true"></i></button>

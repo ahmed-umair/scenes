@@ -25,6 +25,19 @@
 	
 }
 
+.chat {
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 400px;
+	position: relative;
+}
+
+/* .chatBox {
+	
+	position: fixed;
+	height: 100%;
+} */
+
 
 
 /* ******************** */
@@ -54,3 +67,7 @@
 	top: 11px;
 	width: 33px;
   }
+
+ 
+
+ 
