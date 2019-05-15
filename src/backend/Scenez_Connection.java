@@ -18,13 +18,13 @@ public class Scenez_Connection {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");         //obtain jdbc driver class
 		} catch (ClassNotFoundException e1) {
-
+			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
 		//SET NEW DATABASE CREDENTIALS HERE
 		dbConnection = null;
-		url = "jdbc:mysql://139.179.211.216:3306/project";
+		url = "jdbc:mysql://139.179.209.13:3306/project";
 		username = "masna";
 		password = "lifeisenjoy1";
 		
@@ -33,6 +33,11 @@ public class Scenez_Connection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Scenez_Connection(Connection con)
+	{
+		this.dbConnection = con;
 	}
 	
 	//methods
@@ -46,6 +51,7 @@ public class Scenez_Connection {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");         //obtain jdbc driver class
 		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		dbConnection = null;
