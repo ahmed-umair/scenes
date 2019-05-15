@@ -1,3 +1,5 @@
+<%@page import="backend.Scenez_Comments"%>
+<%@page import="backend.Scenez_PostBean"%>
 <%@page import="backend.Scenez_Connection"%>
 <%@page import="backend.Friend_Pair"%>
 <%@page import="backend.Scenez_IS_FRIENDS_WITH"%>
@@ -10,6 +12,8 @@
 <%@page import="backend.Scenez_EventTag"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="backend.Scenez_POST"%>
+<%@page import="backend.Scenez_Comments"%>
+<%@page import="backend.Scenez_CommentBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -36,6 +40,7 @@
 	Scenez_EventTag tag_data = new Scenez_EventTag(global_Connection.getConnection());
 	Scenez_IS_FRIENDS_WITH friends_data = new Scenez_IS_FRIENDS_WITH(global_Connection.getConnection());
 	Scenez_POST post_data = new Scenez_POST(global_Connection.getConnection());
+	Scenez_Comments comment_data = new Scenez_Comments(global_Connection.getConnection());
 	
 	// Event ID and corressponding bean
 	int eventId = Integer.parseInt(request.getParameter("value"));
@@ -194,18 +199,24 @@
                 </div>
 
             </div>
+            <%
+            	ArrayList<Scenez_PostBean> eventPostLists = new ArrayList<Scenez_PostBean>();
+            	eventPostLists = post_data.getPostsofEventAsList(eventId);
+            	Iterator<Scenez_PostBean> iter = eventPostLists.iterator();
+            	while(iter.hasNext()) {
+            		if(eventPostLists.isEmpty())
+            			break;
+            		Scenez_PostBean currentPost= iter.next();
+            %>
             <div class="col-sm-10">
                 <!--POST-->
                 <div id="post-n" class="card">
                     <div class="card-header">
-                        <%
-                        	post_data.nameofPoster(postId);
-                        %>
+                      <%= post_data.getFirstName(currentPost.getId()) + " " + post_data.getLastName(currentPost.getId()) %>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Finally Khaa Liya</h5>
-                        <p class="card-text">Khaa liya yaar meinay. Usko bhi nahi pata tha kya karna hai. Mujhay bhi
-                            nahi pata tha. Dono ney on the fly seekha.</p>
+                        <h5 class="card-title"><%= currentPost.getTitle() %></h5>
+                        <p class="card-text"><%= currentPost.getContent() %></p>
                     </div>
                     <div class="card-footer">
                         <span>Post Metadata</span>
@@ -222,8 +233,20 @@
                     <div class="col-sm-10">
                         <!--INDIVIDUAL COMMENT-->
                         <div class="card my-2">
+                        <%
+	                        ArrayList<Scenez_CommentBean> commentList= new ArrayList<Scenez_CommentBean>();
+	                        commentList = comment_data.getCommentsOfPostAsList(currentPost.getId());
+	                    	Iterator<Scenez_CommentBean> iterate = commentList.iterator();
+	                    	
+	                    	while(iterate.hasNext()) {
+	                    		if(commentList.isEmpty())
+	                    			break;
+	                    		Scenez_CommentBean currCommentBean = iterate.next();	
+	                    	
+                        %>
                             <div class="card-header">
-                                <span>Talha replied:</span>
+                                <span>
+                                 <%= comment_data.getFirstName(currCommentBean.getId()) + " " + comment_data.getLastName(currCommentBean.getId()) + " " %>replied:</span>
                                 <span class="col-sm-6 votes">
                                     <div class="btn-group" role="group" aria-label="Button group">
                                         <button class="btn btn-sm btn-outline-dark vote-btn"
@@ -234,39 +257,25 @@
                                 </span>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Lorem ipsum dolor sit amet</p>
+                                <p class="card-text"><%=currCommentBean.getContent() %></p>
                             </div>
+                            <% } %>
                         </div>
-                        <!--INDIVIDUAL COMMENT-->
-                        <div class="card my-2">
-                            <div class="card-header">
-                                <span>Aayan replied:</span>
-                                <span class="col-sm-6 votes">
-                                    <div class="btn-group" role="group" aria-label="Button group">
-                                        <button class="btn btn-sm btn-outline-dark vote-btn"
-                                            type="button">Upvote</button>
-                                        <button class="btn btn-sm btn-outline-dark vote-btn"
-                                            type="button">Downvote</button>
-                                    </div>
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">Masna khaanay ki details bataana band karo! :(</p>
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group col-sm-10 d-block">
                         <div class="row my-2">
-                            <h6>Add new comment</h6>
+                            <h6>Reply to Post</h6>
                         </div>
                         <div class="row my-2">
-                            <label for="my-input">Post Content</label>
-                            <textarea id="my-input" name="post-content" class="form-control" rows="3"></textarea>
+                            <label for="my-input">Comment</label>
+                            <form class="form" action="postComment.jsp">
+                            <textarea id="my-input" name=<%currentPost.getId(); %> class="form-control" rows="3"></textarea>
+                            </form>
                         </div>
                         <div class="row my-2 justify-content-end">
                             <button type="submit" class="btn btn-outline-dark my-btn">Post Comment</button>
                         </div>
                     </div>
+                    <% } %>
                 </div>
                 <div id="post-add" class="row justify-content-center">
                     <div class="form-group col-sm-12 d-block">
