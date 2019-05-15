@@ -1,0 +1,37 @@
+html, body{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .post-area {
+        margin-bottom: 50px;
+    }
+    
+    .vote-btn:hover {
+        background-color: #2A0055;
+        color: white;
+    }
+    
+    .post-thumb {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            /* border: 1px dashed #2A0055; */
+    }
+    
+    .my-badge {
+        background-color: #2a0055;
+        color: white;
+    }
+    
+    .event-pic {
+        /* border: 2px solid #2A0055; */
+        height: 400px;
+        width: 600px;
+        background-size: cover;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
