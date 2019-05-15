@@ -260,12 +260,12 @@
             <h4 style="color: #4E4E4E; font-weight: 600;" class="mx-auto display-4">Your Event</h4>
         </div>
         <hr class="end-of-post-hr mb-5">
-        <div id="event-metadata" class="row  mx-auto align-items-center mt-2">
-            <div id="cover-img" class="col">
-                <img src="image.jpg" class="img-responsive col-sm-12">
+        <div id="event-metadata" class="row  mx-auto align-items-start mt-2">
+            <div id="cover-img" class="col-sm-5">
+                <img src="celebration.jpg" class="img-responsive col-sm-12 px-0 event-pic">
             </div>
 
-            <div id="event-metadata-text" class="col ">
+            <div id="event-metadata-text" class="col mt-4">
                 <div class="row ">
                     <div class="col">
                         <h5 class="tbg">Details:</h5>
@@ -276,8 +276,9 @@
                         </ul>
                     </div>
                 </div>
+                <hr class="end-of-post-hr">
                 <div class="row py-1">
-                    <div class="col-sm-12 d-flex justify-content-around mb-3">
+                    <div class="col-sm-12 d-flex justify-content-around my-2">
                         <div class="col pl-0">
                             <h5 class="d-inline tbg">You are: <span class="tbp font-weight-light">Going</span></h5>
                         </div>
@@ -287,12 +288,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mx-auto align-items-center">
-                    <h6>Tags</h6>
+                <hr class="end-of-post-hr">
+                <div class="row mx-auto align-items-center my-2">
+                    <h5 class="tbg">Tags</h5>
                     <p class="tbp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                     </p>
                 </div>
+                <hr class="end-of-post-hr">
             </div>
 
         </div>
@@ -315,9 +318,12 @@
         <!--AREA FOR ALL POSTS RELATED TO THIS EVENT-->
         <div class="container">
             <div id="post-display" class="row justify-content-center">
-                <div class="row mb-3">
-                    <div class="col">
-                        <h3 class="tbg"> Posts on this event</h3>
+                <div class="row mb-3 d-flex justify-content-around align-items-center">
+                    <div class="col-sm-12">
+                        <div class="row d-flex justify-content-around align-items-center">
+                            <h3 class="tbg mr-5"> Posts on this event</h3>
+                            <a href="#add-new-post "><button class="btn my-btn ml-5">Add new post</button></a>
+                        </div>
                     </div>
 
                 </div>
@@ -358,8 +364,8 @@
                                     <span class="col-sm-6 votes pr-0">
                                         <div class="btn-group" role="group" aria-label="Button group">
                                             <!-- <span><i class="fas fa-caret-up"></i> 21</span> -->
-                                            <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><span class="badge badge-pill my-badge mr-2">21</span>Upvote</button>
-                                            <button class="btn btn-sm btn-outline-dark vote-btn" type="button">Downvote<span class="badge badge-pill my-badge ml-2">7</span></button>
+                                            <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><span class="badge badge-pill my-badge mr-2">21</span><i class="fas fa-long-arrow-alt-up"></i></button>
+                                            <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><i class="fas fa-long-arrow-alt-down"></i><span class="badge badge-pill my-badge ml-2">7</span></button>
                                         </div>
                                     </span>
                                 </div>
@@ -378,14 +384,17 @@
                                             <span class="tbg"><a href="#" class="tbp"><strong>Talha</strong></a> replied:</span>                                                                            
                                             <span class="col-sm-6 votes">
                                                 <div class="btn-group" role="group" aria-label="Button group">
-                                                        <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><span class="badge badge-pill my-badge mr-2">21</span>Upvote</button>
-                                                        <button class="btn btn-sm btn-outline-dark vote-btn" type="button">Downvote<span class="badge badge-pill my-badge ml-2">7</span></button>
+                                                        <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><span class="badge badge-pill my-badge mr-2">21</span><i class="fas fa-long-arrow-alt-up"></i></button>
+                                                        <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><i class="fas fa-long-arrow-alt-down"></i><span class="badge badge-pill my-badge ml-2">7</span></button>
                                                 </div>
                                             </span>
                                         </div>
-                                        <div class="col">
+                                        <div class="col d-flex align-items-center justify-content-end">
                                             <button class="btn btn-danger btn-sm float-right">Delete</button>
                                         </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-end pr-3">
+                                        <span style="font-size: 0.6rem;">12:26AM | 16 May 2019</span>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -406,8 +415,12 @@
                                                 </div>
                                             </span>
                                         </div>
-                                        <div class="col">
-                                            <button class="btn btn-danger btn-sm float-right">Delete</button>
+                                        <div class="col d-flex align-items-center justify-content-end">
+                                                <button class="btn btn-danger btn-sm float-right">Delete</button>
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex justify-content-end pr-3">
+                                            <span style="font-size: 0.6rem;">12:36AM | 16 May 2019</span>
                                         </div>
                                     </div>
                                 </div>
@@ -432,6 +445,7 @@
                     <div id="post-add" class="row justify-content-center">
                         <div class="form-group col-sm-12 d-block">
                             <div class="row my-2">
+                                <a href="" name="add-new-post"></a>
                                 <h4>Add new post</h4>
                             </div>
                             <div class="row my-2">
@@ -497,6 +511,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    
 </body>
 
 </html>

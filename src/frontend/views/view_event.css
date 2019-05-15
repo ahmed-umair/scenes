@@ -24,3 +24,13 @@ html, body{
     color: white;
 }
 
+.event-pic {
+    border: 2px solid #2A0055;
+    height: 400px;
+    width: 600px;
+    background-size: cover;
+}
+
+html {
+    scroll-behavior: smooth;
+}
