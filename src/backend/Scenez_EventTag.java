@@ -12,7 +12,12 @@ public class Scenez_EventTag {
 	public Scenez_EventTag() {
 			//Set up connection here
 			s_con = new Scenez_Connection();
-		}
+	}
+	
+	public Scenez_EventTag(Connection con)
+	{
+		s_con = new Scenez_Connection(con);
+	}
 	
 	//Get tags for popular tag column --> curDate < eventDate
 	public ArrayList<String> getPopularTagsAsList(){
