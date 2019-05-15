@@ -1,3 +1,5 @@
+<%@page import="java.sql.Connection"%>
+<%@page import="backend.Scenez_Connection"%>
 <%@page import="backend.Friend_Pair"%>
 <%@page import="backend.Scenez_IS_FRIENDS_WITH"%>
 <%@page import="backend.Scenez_LOCATION"%>
@@ -24,12 +26,13 @@
 
 <body>
 <%
-	Scenes_USER usr_data = new Scenes_USER();
-	Scenez_grp_invite grp_data = new Scenez_grp_invite();
-	Scenez_EVENT event_Data = new Scenez_EVENT();
-	Scenez_LOCATION location_data = new Scenez_LOCATION();
-	Scenez_EventTag tag_data = new Scenez_EventTag();
-	Scenez_IS_FRIENDS_WITH friends_data = new Scenez_IS_FRIENDS_WITH();
+	Connection global_connection = (Connection) session.getAttribute("DBConnection");
+	Scenes_USER usr_data = new Scenes_USER(global_connection);
+	Scenez_grp_invite grp_data = new Scenez_grp_invite(global_connection);
+	Scenez_EVENT event_Data = new Scenez_EVENT(global_connection);
+	Scenez_LOCATION location_data = new Scenez_LOCATION(global_connection);
+	Scenez_EventTag tag_data = new Scenez_EventTag(global_connection);
+	Scenez_IS_FRIENDS_WITH friends_data = new Scenez_IS_FRIENDS_WITH(global_connection);
 %>
 	<nav class="navbar navbar-light d-flex sticky-top border" style="background-color: #2A0055;">
 		<div class="container col-sm-12 d-flex justify-content-between">
@@ -54,7 +57,7 @@
 				</div>
 				<!--NOTIFICATIONS BUTTON-->
 				<div class="col-sm-1">
-					<a href="#"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right"></i></a>
+					<a href="logout.jsp"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right"></i></a>
 				</div>
 
 
@@ -63,7 +66,7 @@
 				<!-- PROFILE PICTURE -->
 				<div class="text-center col-sm-2">
 					<div class=" float-right">
-						<a href="logout.jsp"><img src="bandi.jpg" class="profile_picture"></a>
+						<a href="viewProfile.jsp"><img src="bandi.jpg" class="profile_picture"></a>
 						<label class="name d-block"><strong><%= usr_data.getFirstNameAsString(session.getAttribute("email").toString()) + " " +  usr_data.getLastNameAsString(session.getAttribute("email").toString()) %></strong></label>
 					</div>
 				</div>

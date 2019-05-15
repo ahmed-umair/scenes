@@ -1,3 +1,4 @@
+<%@page import="backend.Scenez_Connection"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="backend.Scenes_USER"%>
@@ -16,7 +17,8 @@
 	boolean login = false;
 	String email="", password="";
 	int status = 0;  // 1 = login success, 2 = login fail, 3 = invalid data
-	
+	Scenez_Connection global_connection = new Scenez_Connection();
+			
 	if (request.getParameter("username") != null)
 	{
 		email = request.getParameter("username");
@@ -37,7 +39,7 @@
 	
 	if (status != 3)    //server data is coming from login page and not some other page
 	{
-		Scenes_USER user_table = new Scenes_USER();
+		Scenes_USER user_table = new Scenes_USER(global_connection.getConnection());
 		ArrayList<String> user_emails = user_table.getEmailAsList();
 		Iterator<String> it = user_emails.iterator();
 		
@@ -50,6 +52,7 @@
 		
 		if (login)
 		{
+			session.setAttribute("DBConnection", global_connection.getConnection());
 			session.setAttribute("userLoggedIn", true);
 			session.setAttribute("email", email);
 			session.setAttribute("invalidCredentials", false);
