@@ -15,6 +15,11 @@ public class Scenez_EVENT {
 		s_con = new Scenez_Connection();
 	}
 	
+	public Scenez_EVENT(Connection con)
+	{
+		s_con = new Scenez_Connection(con);
+	}
+	
 	//Methods
 	//Get Methods for attributes, return as ArrayList
 	
@@ -82,6 +87,63 @@ public class Scenez_EVENT {
 		
 		return result;
 		
+	}
+	
+	public Scenez_EventBean getSingleEventBean(int eventID) {
+		Scenez_EventBean eventBean = new Scenez_EventBean();
+		
+		String query = "Select * from project.event where id = ?;";
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, eventID);
+			
+			ResultSet res = stmt.executeQuery();
+			while(res.next()) {
+				eventBean.setId(res.getInt(1));
+				eventBean.setName(res.getString(2));
+				eventBean.setStart_time(res.getString(3));
+				eventBean.setDuration(res.getDouble(4));
+				eventBean.setPrivacy(res.getString(5));
+				eventBean.setCapacity(res.getInt(6));
+				eventBean.setDescription(res.getString(7));
+				eventBean.setEmail(res.getString(8));
+				eventBean.setCat_name(res.getString(9));
+				eventBean.setLocation_id(res.getInt(10));
+				eventBean.setEvent_date(res.getString(11));
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return eventBean;
+	}
+	
+	public ArrayList<String> getEventTagsAsList(int eventId){
+		ArrayList<String> eventTags = new ArrayList<String>();
+		
+		String query = "select tag from project.event_tag where event_id = ?;";
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, eventId);
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				String result = rs.getString(1);
+				eventTags.add(result);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("ERROR IN EVENT TAG SQL QUERY");
+		}
+		
+		return eventTags;
 	}
 	
 	public ArrayList<Scenez_EventBean> getAllEventBeansAsList()

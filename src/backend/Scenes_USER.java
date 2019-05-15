@@ -1,5 +1,6 @@
 package backend;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +15,11 @@ public class Scenes_USER {
 	public Scenes_USER()
 	{
 		s_con = new Scenez_Connection();
+	}
+	
+	public Scenes_USER(Connection con)
+	{
+		s_con = new Scenez_Connection(con);
 	}
 	
 	public ArrayList<String> getEmailAsList()
