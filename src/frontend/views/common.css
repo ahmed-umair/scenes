@@ -123,6 +123,13 @@
     color: #4E4E4E;
 }
 
+.end-of-post-hr {
+    border: 0;
+        height: 1px;
+        background: #a4a8ad;
+        background-image: linear-gradient(to right, rgb(255, 255, 255), #a4a8ad, rgb(255, 255, 255));
+    }
+
 /* **************************** */
  /* EVERYTHING RELATED TO FOOTER */
  /* **************************** */
