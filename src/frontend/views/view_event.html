@@ -1,99 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link rel="stylesheet" type="text/css" href="common.css">
+	<title>EVENT KA NAAM | Scenez</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" type="text/css" href="mainfeed.css"> -->
+	<link rel="stylesheet" type="text/css" href="common.css">
+    <link rel="stylesheet" type="text/css" href="header.css">
     <link rel="stylesheet" type="text/css" href="view_event.css">
-    <title>View Event | Scenez</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 
 <body>
+	<nav class="navbar navbar-light d-flex sticky-top" style="background-color: #2A0055;">
+		<div class="container col-sm-12 d-flex justify-content-between">
+			<div class="row col-sm-12 align-items-center">
 
-    <nav class="navbar navbar-light d-flex sticky-top" style="background-color: #2A0055;">
-        <div class="container col-sm-12 d-flex justify-content-between">
-            <div class="row col-sm-12 align-items-center">
-                <!--LOGO-->
-                <div class="col-sm-2 float-left ">
-                    <a class="navbar-brand" href="#"><img src="logo.png" class="logo ml-auto"></a>
-                </div>
+				<!--LOGO-->
+				<div class="col-sm-2 float-left ">
+					<a class="navbar-brand" href="#"><img src="logo.png" class="logo ml-auto"></a>
+				</div>
 
-                <!--HOME BUTTON-->
-                <div class="col-sm-1 ">
-                    <a href="#"><i class="fa fa-home fa-2x fa-fw neeche_button my-auto float-left"></i></a>
-                </div>
-                <!-- SEARCH BAR -->
-                <div class="col ">
-                    <form class="form-inline">
-                        <input type="text" name="searchBar" placeholder="Search bar..." class="col search_bar ml-auto">
-                        <button type="submit" class="search_bar col-sm-1 d-inline" id="search_button">
-                            <i class="fa fa-search "></i>
-                        </button>
-                    </form>
-                </div>
-                <!--NOTIFICATIONS BUTTON-->
-                <div class="col-sm-1">
-                    <a href="#"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right"></i></a>
-                </div>
+				<!--HOME BUTTON-->
+				<div class="col-sm-1 ">
+					<a href="#"><i class="fa fa-home fa-2x fa-fw neeche_button my-auto float-left"></i></a>
+				</div>
 
 
+				<!-- SEARCH BAR -->
+				<div class="col">
+					<form class="form-inline">
+						<input type="text" name="searchBar" placeholder="Search bar..." class="col search_bar ml-auto">
+						<button type="submit" class="search_bar col-sm-1 d-inline" id="search_button">
+							<i class="fa fa-search "></i>
+						</button>
+					</form>
+				</div>
 
 
-                <!-- PROFILE PICTURE -->
-                <div class="text-center col-sm-2">
-                    <div class=" float-right">
-                        <a href="logout.jsp"><img src="bandi.jpg" class="profile_picture"></a>
-                        <label class="name d-block"><strong>Ivana Bouchard</strong></label>
-                    </div>
-                </div>
-            </div>
-        </div>
+				<!--NOTIFICATIONS BUTTON-->
+				<div class="col-sm-1">
+					<a href="#"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right"></i></a>
+				</div>
 
-        <!-- NEECHE WAALI CHEEZEIN -->
-        <!-- <div id="icon_bar" class="container col-sm-6 d-flex justify-content-between px-4">
-                    <a href="#"><i class="fa fa-home fa-2x fa-fw neeche_button mr-auto float-left"></i></a>
-                    <a href="#"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto"></i></a>
-                </div> -->
-    </nav>
 
-    <!-- *************** LEFT COLUMN *************** -->
-    <div class="container d-flex justify-content-start border-right float-left col-lg-2 make-me-sticky">
-        <div id="left-col" class="col-lg-12 ml-2 ">
-            <div id="groups" class="row d-flex col-lg-12 mt-4 mb-4 border-bottom pb-4">
-                <div class="d-flex justify-content-between">
-                    <h5 class="to-be-grey"><strong>Groups</strong></h5>
-                </div>
-                <nav class="nav flex-column">
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Disabled</a>
-                    <a href="#" id="see-more" class="mt-2"><strong>See more</strong></a>
-                </nav>
-                <button id="create-group-btn"
-                    class="btn btn-sm btn-outline-dark text-white mt-3 ml-auto float-right my-btn">Create Group</button>
-            </div>
-            <div id="pop-tags" class="row d-flex col-lg-12">
-                <h5 class="to-be-grey"><strong>Popular Tags</strong></h5>
-                <nav class="nav flex-column">
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Active</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Link</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Link</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-hashtag"></i> Disabled</a>
-                </nav>
-            </div>
-        </div>
-    </div>
+				<!-- PROFILE PICTURE -->
+				<div class="text-center col-sm-2">
+					<div class=" float-right">
+						<a href="logout.jsp"><img src="bandi.jpg" class="profile_picture"></a>
+						<label class="name d-block"><strong>
+								<div class="dropdown show">
+									<a class="name dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Ivana Bouchard
+									</a>
+
+									<div class="dropdown-menu" id="pic-dropdown" aria-labelledby="dropdownMenuLink">
+										<a class="dropdown-item option" href="#">View Profile</a>
+										<a class="dropdown-item option" href="#">Settings</a>
+										<a class="dropdown-item option" href="#">Logout</a>
+									</div>
+								</div>
+							</strong></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- *************** LEFT COLUMN *************** -->
+	<div class="container d-flex justify-content-start border-right float-left col-sm-2 make-me-sticky">
+		<div id="left-col" class="col-sm-12 ml-2 ">
+
+			<!-------- GROUPS --------->
+			<div id="groups" class="row d-flex mt-4 mb-4 border-bottom pb-4">
+				<!-- GROUPS HEADING -->
+				<div id="group-header" class="row justify-content-center">
+					<h5 class="tbg col-sm-12"><strong>My Groups</strong></h5>
+				</div>
+
+				<div id="group-list" class="row mx-auto">
+					<nav class="nav col-sm-12 mx-auto">
+						<div class="row align-items-center">
+							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Orgy Central</a>
+						</div>
+						<div class="row">
+							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Assault on Aayan Nusrat's
+								House</a>
+						</div>
+						<div class="row">
+							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Lez go partayy</a>
+						</div>
+						<div class="row">
+							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Getting collective FZ in
+								EEE</a>
+						</div>
+					</nav>
+					<div class="row">
+						<div class="col-sm-12">
+							<a href="#" id="see-more" class="link"><strong>See more</strong></a>
+						</div>
+					</div>
+				</div>
+				<!-- LIST OF GROUPS -->
+				<div class="row">
+					<div class="col-sm-12">
+						<button id="create-group-btn" class="btn btn-sm btn-outline-dark mt-3 col mx-auto my-btn">Create
+							Group</button>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-------- POPULAR TAGS --------->
+			<div id="pop-tags" class="row d-flex">
+				<!-- HEADING -->
+				<div class="row">
+					<h5 class="tbg col"><strong>Popular Tags</strong></h5>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-10">
+						<a href="#" class="badge badge-tag d-inline">Primary</a>
+						<a href="#" class="badge badge-tag d-inline">Secondary</a>
+						<a href="#" class="badge badge-tag d-inline">Success</a>
+						<a href="#" class="badge badge-tag d-inline">Danger</a>
+						<a href="#" class="badge badge-tag d-inline">Warning</a>
+						<a href="#" class="badge badge-tag d-inline">Info</a>
+						<a href="#" class="badge badge-tag d-inline">Light</a>
+						<a href="#" class="badge badge-tag d-inline">Dark</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid col-sm-8 d-inline-block feed">
+
+	</div>
+
+
+	<!-- *************** RIGHT COLUMN *************** -->
+	<div class="container d-flex justify-content-start border-left float-right col-sm-2 make-me-sticky">
+
+		<div id="right-col" class="col-sm-12 px-0">
+
+			<!-------- TRENDING EVENTS --------->
+			<div id="trending-events" class="row d-flex col-sm-12 mt-3 mb-0 pb-0 px-3">
+				<h5 class="tbg"><strong>Upcoming Events</strong></h5>
+				<p id="sort-prompt" class="tbp col-sm-12 px-0 py-0 mb-3">Sorted by: date</p>
+
+				<nav class="nav flex-column">
+
+					<!-- Event 1 -->
+					<div class="mb-4 trending-event-instance">
+						<a href="#">
+							<h4 class="tbg trending-event-heading mb-0">John Smith's Concert</h4>
+							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
+							<span class="tbp" style="font-size: 0.8rem;">Ankara Concert Association</span>
+						</a>
+					</div>
+
+					<!-- Event 2 -->
+					<div class="mb-4">
+						<a href="#">
+							<h4 class="tbg trending-event-heading mb-0">Bilkent vs. NUST</h4>
+							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
+							<span class="tbp" style="font-size: 0.8rem;">Bilkent Football Club</span>
+						</a>
+					</div>
+
+					<!-- Event 3 -->
+					<div class="mb-4">
+						<a href="#">
+							<h4 class="tbg trending-event-heading mb-0">Women's March</h4>
+							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
+							<span class="tbp" style="font-size: 0.8rem;">Women Rights Association</span>
+						</a>
+					</div>
+
+				</nav>
+			</div>
+
+			<!-------- CHAT --------->
+			<div id="chat" class="col-sm-12 px-0">
+				<div class="row d-flex justify-content-end align-items-center pt-1"
+					style="border-top: 1px solid #707070;">
+					<div class="col-sm-5 my-0">
+						<h5 class="tbg"><strong>Chats</strong></h5>
+					</div>
+					<div class="col-sm-7 my-0 px-3 ">
+						<a href="#" class="view-all-chats float-right">View all chats</a> <!-- view all chats -->
+					</div>
+				</div>
+
+				<!-- Friend 1 -->
+				<a href="#" class="chat-link">
+					<div class="row chat-box border-bottom py-2 d-flex justify-content-start align-items-center">
+						<div class="col-sm-3">
+							<img src="celebration.jpg" alt="" class="chat-pic">
+						</div>
+						<div class="col-sm-8">
+							<h5 class="friend-name tbp mb-0">Tamim Akhtar</h5>
+						</div>
+					</div>
+				</a>
+
+				<!-- Friend 2 -->
+				<a href="#" class="chat-link">
+					<div class="row chat-box py-2 d-flex justify-content-start align-items-center">
+						<div class="col-sm-3">
+							<img src="david.jpg" alt="" class="chat-pic">
+						</div>
+						<div class="col-sm-8">
+							<h5 class="friend-name tbp mb-0">Hamza Ashfaq</h5>
+						</div>
+					</div>
+				</a>
+
+				<!-- Friend 3 -->
+				<a href="#" class="chat-link">
+					<div class="row chat-box py-2 d-flex justify-content-start align-items-center">
+						<div class="col-sm-3">
+							<img src="bandi.jpg" alt="" class="chat-pic">
+						</div>
+						<div class="col-sm-8">
+							<h5 class="friend-name tbp mb-0">Rameez Hashmi</h5>
+						</div>
+					</div>
+				</a>
+
+				<!-- Friend 4 -->
+				<a href="#" class="chat-link">
+					<div class="row chat-box py-2 d-flex justify-content-start align-items-center">
+						<div class="col-sm-3">
+							<img src="dancing.jpg" alt="" class="chat-pic">
+						</div>
+						<div class="col-sm-8">
+							<h5 class="friend-name tbp mb-0">Talha Zeeshan</h5>
+						</div>
+					</div>
+				</a>
+
+			</div>
+		</div>
+	</div>
+
+    
 
     <div id="main-view-pane" class="container-fluid align-items-start col-sm-8 d-inline-block feed">
-        <div id="event-title" class="row ">
-            <h2 style="color: #4E4E4E; font-weight: 700;" class="mx-auto">Your Event</h2>
+        <div id="event-title" class="row mb-2">
+            <h4 style="color: #4E4E4E; font-weight: 600;" class="mx-auto display-4">Your Event</h4>
         </div>
-        <div id="event-metadata" class="row  mx-auto align-items-center">
+        <hr class="end-of-post-hr mb-5">
+        <div id="event-metadata" class="row  mx-auto align-items-center mt-2">
             <div id="cover-img" class="col">
                 <img src="image.jpg" class="img-responsive col-sm-12">
             </div>
@@ -101,7 +268,7 @@
             <div id="event-metadata-text" class="col ">
                 <div class="row ">
                     <div class="col">
-                        <h6>Details:</h6>
+                        <h5 class="tbg">Details:</h5>
                         <ul class="list-unstyled">
                             <li>Location: Hilton Ankara</li>
                             <li>Date: 16 April 2019</li>
@@ -110,10 +277,14 @@
                     </div>
                 </div>
                 <div class="row py-1">
-                    <div class="col-sm-12">
-                        <h6 class="d-inline">You are: Going</h6>
-                        <h6 class="d-inline">Mark as: </h6>
-                        <button class="btn btn-sm btn-outline-dark" type="button">Going</button>
+                    <div class="col-sm-12 d-flex justify-content-around mb-3">
+                        <div class="col pl-0">
+                            <h5 class="d-inline tbg">You are: <span class="tbp font-weight-light">Going</span></h5>
+                        </div>
+                        <div class="col d-flex align-items-center justify-content-start">
+                            <h5 class="d-inline mr-3 tbg">Mark as: </h5>
+                            <button class="btn btn-sm btn-outline-dark" type="button">Not Going</button>
+                        </div>
                     </div>
                 </div>
                 <div class="row mx-auto align-items-center">
@@ -126,8 +297,8 @@
 
         </div>
         <div id="event-description" class="row justify-content-center mx-auto">
-            <div class="col-sm-10">
-                <h6>Description</h6>
+            <div class="col-sm-10 mt-3">
+                <h4 class="tbg">Description</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -137,134 +308,148 @@
                     fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                     deserunt mollit anim id est laborum.</p>
             </div>
-
         </div>
 
+        <hr>
 
         <!--AREA FOR ALL POSTS RELATED TO THIS EVENT-->
-        <div id="post-display" class="row justify-content-center">
-            <div class="row">
-                <div class="col">
-                    <h4>Posts on this event</h4>
-                </div>
+        <div class="container">
+            <div id="post-display" class="row justify-content-center">
+                <div class="row mb-3">
+                    <div class="col">
+                        <h3 class="tbg"> Posts on this event</h3>
+                    </div>
 
-            </div>
-            <div class="col-sm-10">
-                <!--POST-->
-                <div id="post-n" class="card">
-                    <div class="card-header">
-                        Masna
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Finally Khaa Liya</h5>
-                        <p class="card-text">Khaa liya yaar meinay. Usko bhi nahi pata tha kya karna hai. Mujhay bhi
-                            nahi pata tha. Dono ney on the fly seekha.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>Post Metadata</span>
-                        <span class="col-sm-6 votes">
-                            <div class="btn-group" role="group" aria-label="Button group">
-                                <button class="btn btn-sm btn-outline-dark vote-btn" type="button">Upvote</button>
-                                <button class="btn btn-sm btn-outline-dark vote-btn" type="button">Downvote</button>
-                            </div>
-                        </span>
-                    </div>
                 </div>
-                <!--COMMENTS AREA FOR THE ABOVE POST-->
-                <div class="row justify-content-end">
-                    <div class="col-sm-10">
-                        <!--INDIVIDUAL COMMENT-->
-                        <div class="card my-2">
-                            <div class="card-header">
-                                <span>Talha replied:</span>
-                                <span class="col-sm-6 votes">
-                                    <div class="btn-group" role="group" aria-label="Button group">
-                                        <button class="btn btn-sm btn-outline-dark vote-btn"
-                                            type="button">Upvote</button>
-                                        <button class="btn btn-sm btn-outline-dark vote-btn"
-                                            type="button">Downvote</button>
+                <div class="col-sm-10">
+                    <!--POST-->
+                    <div id="post-n" class="card">
+                        <!-- POST HEADER -->
+                        <div class="card-header">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <!-- PICTURE AND NAME -->
+                                <div class="col">
+                                    <div class="row d-flex justify-content-start align-items-center">
+                                        <a href="#" ><img src="david.jpg" alt="" class="img-thumbnail post-thumb "></a>
+                                        <a href="#" class="tbp"><h4 class="ml-3 tbp mb-0">Masna Ahmad</h4></a> 
                                     </div>
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">Lorem ipsum dolor sit amet</p>
-                            </div>
+                                </div>
+                                <!-- DELETE BUTTON -->
+                                <div class="col">
+                                    <button class="btn btn-danger btn-sm float-right">Delete</button>
+                                </div>
+                            </div> <!-- END OF POST HEADER-->
                         </div>
-                        <!--INDIVIDUAL COMMENT-->
-                        <div class="card my-2">
-                            <div class="card-header">
-                                <span>Aayan replied:</span>
-                                <span class="col-sm-6 votes">
-                                    <div class="btn-group" role="group" aria-label="Button group">
-                                        <button class="btn btn-sm btn-outline-dark vote-btn"
-                                            type="button">Upvote</button>
-                                        <button class="btn btn-sm btn-outline-dark vote-btn"
-                                            type="button">Downvote</button>
-                                    </div>
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">Masna khaanay ki details bataana band karo! :(</p>
+
+                        <!-- CARD BODY -->
+                        <div class="card-body">
+                            <h4 class="card-title tbg">Finally Khaa Liya</h4>
+                            <p class="card-text">Khaa liya yaar meinay. Usko bhi nahi pata tha kya karna hai. Mujhay bhi
+                                nahi pata tha. Dono ney on the fly seekha.</p>
+                        </div>
+
+                        <!-- CARD FOOTER -->
+                        <div class="card-footer">
+                            <div class="row d-flex justify-content-between">
+                                <div class="col">
+                                    <span class="tbg font-weight-bold">2 hours ago</span>
+                                </div>
+                                <div class="col d-flex justify-content-end">
+                                    <span class="col-sm-6 votes pr-0">
+                                        <div class="btn-group" role="group" aria-label="Button group">
+                                            <!-- <span><i class="fas fa-caret-up"></i> 21</span> -->
+                                            <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><span class="badge badge-pill my-badge mr-2">21</span>Upvote</button>
+                                            <button class="btn btn-sm btn-outline-dark vote-btn" type="button">Downvote<span class="badge badge-pill my-badge ml-2">7</span></button>
+                                        </div>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-sm-10 d-block">
-                        <div class="row my-2">
-                            <h6>Add new comment</h6>
+                    <!--COMMENTS AREA FOR THE ABOVE POST-->
+                    <div class="row justify-content-end">
+                        <div class="col-sm-10">
+                            <!--INDIVIDUAL COMMENT-->
+                            <div class="card my-2">
+                                <div class="card-header">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="tbg"><strong>Talha</strong> replied:</span>                                                                            
+                                            <span class="col-sm-6 votes">
+                                                <div class="btn-group" role="group" aria-label="Button group">
+                                                        <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><span class="badge badge-pill my-badge mr-2">21</span>Upvote</button>
+                                                        <button class="btn btn-sm btn-outline-dark vote-btn" type="button">Downvote<span class="badge badge-pill my-badge ml-2">7</span></button>
+                                                </div>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <button class="btn btn-danger btn-sm float-right">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Lorem ipsum dolor sit amet</p>
+                                </div>
+                            </div>
+                            <!--INDIVIDUAL COMMENT-->
+                            <div class="card my-2">
+                                <div class="card-header">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="tbg"><strong>Ayaan</strong> replied:</span>                                                                            
+                                            <span class="col-sm-6 votes">
+                                                <div class="btn-group" role="group" aria-label="Button group">
+                                                        <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><span class="badge badge-pill my-badge mr-2">1</span><i class="fas fa-long-arrow-alt-up"></i></button>
+                                                        <button class="btn btn-sm btn-outline-dark vote-btn" type="button"><i class="fas fa-long-arrow-alt-down"></i><span class="badge badge-pill my-badge ml-2">5</span></button>
+                                                </div>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <button class="btn btn-danger btn-sm float-right">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Lorem ipsum dolor sit amet</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row my-2">
-                            <label for="my-input">Post Content</label>
-                            <textarea id="my-input" name="post-content" class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="row my-2 justify-content-end">
-                            <button type="submit" class="btn btn-outline-dark my-btn">Post Comment</button>
+                        <div class="form-group col-sm-10 d-block">
+                            <div class="row my-2">
+                                <h6>Add new comment</h6>
+                            </div>
+                            <div class="row my-2">
+                                <label for="my-input">Post Content</label>
+                                <textarea id="my-input" name="post-content" class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="row my-2 justify-content-end">
+                                <button type="submit" class="btn btn-outline-dark my-btn">Post Comment</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="post-add" class="row justify-content-center">
-                    <div class="form-group col-sm-12 d-block">
-                        <div class="row my-2">
-                            <h4>Add new post</h4>
-                        </div>
-                        <div class="row my-2">
-                            <label for="">Post Title</label>
-                            <input id="" name="post-title" class="form-control" type="text">
-                        </div>
-                        <div class="row my-2">
-                            <label for="my-input">Post Content</label>
-                            <textarea id="my-input" name="post-content" class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="row my-2 justify-content-end">
-                            <button type="submit" class="btn btn-outline-dark my-btn">Make New Post</button>
+                    <div id="post-add" class="row justify-content-center">
+                        <div class="form-group col-sm-12 d-block">
+                            <div class="row my-2">
+                                <h4>Add new post</h4>
+                            </div>
+                            <div class="row my-2">
+                                <label for="">Post Title</label>
+                                <input id="" name="post-title" class="form-control" type="text">
+                            </div>
+                            <div class="row my-2">
+                                <label for="my-input">Post Content</label>
+                                <textarea id="my-input" name="post-content" class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="row my-2 justify-content-end">
+                                <button type="submit" class="btn btn-outline-dark my-btn">Make New Post</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- *************** RIGHT COLUMN *************** -->
-    <div class="container d-flex justify-content-start border-left float-right col-lg-2 make-me-sticky">
-        <div id="right-col" class="col-lg-12 mr-2 ">
-            <div id="trending-events" class="row d-flex col-lg-12 mt-4 mb-4 border-bottom pb-4">
-                <h5 class="to-be-grey"><strong>Trending Events</strong></h5>
-                <nav class="nav flex-column">
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Disabled</a>
-                </nav>
-            </div>
-            <div id="chat" class="row d-flex col-lg-12">
-                <h5 class="to-be-grey"><strong>Chats Here</strong></h5>
-                <nav class="nav flex-column">
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a>
-                    <a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Disabled</a>
-                </nav>
-            </div>
-        </div>
-    </div>
+    
     <!-- FOOTER -->
     <footer class="footer container-fluid col-sm-12 justify-content-between mt-5 fixed"
         style="background-color: #303030;">
