@@ -47,6 +47,7 @@
 	color: #fff;
 	background-color: #2A0055;
 	border: 1px solid #fff;
+	font-weight: 400;
 	transition: color .15s ease-in-out,
 				background-color .15s ease-in-out,
 				border .15s ease-in-out,
@@ -59,6 +60,7 @@
 	text-decoration: none;
 	border: 1px solid #2A0055;
 	border-color: #2A0055;
+	
 }
 
 /* ********* RIGHT COLUMN ********* */
