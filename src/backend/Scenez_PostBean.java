@@ -1,7 +1,5 @@
 package backend;
 
-import com.sun.jmx.snmp.Timestamp;
-
 public class Scenez_PostBean {
 	
 	private int id;
@@ -83,8 +81,5 @@ public class Scenez_PostBean {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
-	
-	
+
 }

@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Scenez_POST {
@@ -22,10 +21,10 @@ public class Scenez_POST {
 	}
 	
 	
-	public ArrayList<String> getPostsofEventAsList(int eventId){
-		ArrayList<String> eventPostList = new ArrayList<String>();
+	public ArrayList<Scenez_PostBean> getPostsofEventAsList(int eventId){
+		ArrayList<Scenez_PostBean> eventPostList = new ArrayList<Scenez_PostBean>();
 		
-		String query = "SELECT content FROM project.post where event_id=?;";
+		String query = "SELECT * FROM project.post where event_id=? order by timestamp desc;";
 		
 		try {
 			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
@@ -33,7 +32,15 @@ public class Scenez_POST {
 			
 			ResultSet res = stmt.executeQuery();
 			while(res.next()) {
-				eventPostList.add(res.getString(1));
+				Scenez_PostBean currPostBean = new Scenez_PostBean();
+				currPostBean.setId(res.getInt(1));
+				currPostBean.setTitle(res.getString(2));
+				currPostBean.setContent(res.getString(3));
+				currPostBean.setTimestamp(res.getTimestamp(4));
+				currPostBean.setEmail(res.getString(5));
+				currPostBean.setEvent_id(res.getInt(6));
+				
+				eventPostList.add(currPostBean);		
 			}
 			
 		} catch (SQLException e) {
@@ -91,6 +98,52 @@ public class Scenez_POST {
 		}
 		
 		return fullName;
+	}
+	
+	public String getFirstName(int postId) {
+		
+		String query = "select first_name from project.user where email in "
+				+ "(select email from project.post where id = ?)";
+
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, postId);
+			
+			ResultSet res = stmt.executeQuery();
+			
+			while(res.next()) {
+				return res.getString(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public String getLastName(int postId) {
+			
+			String query = "select last_name from project.user where email in "
+					+ "(select email from project.post where id = ?)";
+	
+			try {
+				PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+				stmt.setInt(1, postId);
+				
+				ResultSet res = stmt.executeQuery();
+				
+				while(res.next()) {
+					return res.getString(1);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return null;
 	}
 
 }
