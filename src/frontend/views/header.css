@@ -1,67 +1,103 @@
+/* **************************** */
+ /* EVERYTHING RELATED TO HEADER */
+ /* **************************** */
+
 .navbar {
-	height: 210px;
 	opacity: 0%;
 }
 
-img {
-	width: 160px;
-	height: 160px;
-	margin-left: 28%;
-	margin-top: 0.9em; 
+.logo {
+	width: 80px;
+	height: 80px;
 }
 
-input {
-	margin-bottom: 10px;
-	margin-right: 20px;
-	height: 30px;
-	width: 100px;
-	background-color: #E0D2D2;
-	font-family: Maiandra GD;
-
-}
-
-form {
-	padding-right: 7%;
-}
-
-.form-control {
-	width: 260px;
-	border-radius: 1rem;
-	background-color: #E0D2D2;
-	font-size: 18px; 
-	padding-bottom: 10px; 
-	letter-spacing: 1px;
-}
-
-.normalText {
-	color: #94929D;
-	margin-bottom: 0.8em;
-}
-
-#signupSuggestion {
-	float: right;
-	font-size: 12px;
-	margin-right: 12px;
-	text-align: right;
-}
-
-.link {
-	color: white;
-	margin-bottom: 0.8em;
-}
-
-button {
-	float: right;
-	margin-right: 8px;	
-	border-radius: 1rem;
-	padding-bottom: 6px;
-}
-
-.btn {
-	border-radius: 1rem;
-	height: 100%;
-	font-size: 15px;
-	letter-spacing: 0.5em;
-	padding-left: 18px;
+.search_bar {
+	height: 50px;
+	font-size: 20px;
+	font-family: Segoe UI;
+	background-color: #F6F1F1;
+	color: #5A4E4E;
+	border: 1px solid black;
 	font-weight: 600;
+	letter-spacing: 0.25em;
 }
+
+#search_button {
+	margin: 0;
+	padding: auto;
+	border-left: 0;
+}
+.neeche_button {
+	color: white;
+}
+
+.profile_picture {
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	margin-top: 0;
+}
+.name {
+	align-items: center;
+	color:#f1f1f1;
+}
+
+/* ********* RIGHT COLUMN ********* */
+
+/* TRENDING EVENTS */
+
+#sort-prompt {
+	font-size: 0.8rem;
+	display: block;
+}
+
+.trending-event-heading {
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+
+.trending-events > a {
+	text-decoration: none;
+}
+
+/* CHATS */
+.chat-pic {
+	border-radius: 50%;
+	height: 42px;
+	width: 42px;
+	border: 1px dashed #2a0055;
+}
+
+.friend-name {
+	font-size: 1rem;
+}
+
+.chat-box {
+	background-color: #EAEAEA;
+	border-bottom: 1px solid #CECECE;
+}
+
+.view-all-chats {
+	font-size: 0.8rem;
+}
+
+.chat-box:hover {
+	background-color: rgb(212, 209, 209);
+}
+
+/* DROPDOWN MENU */
+
+.dropdown-item {
+	color: #2a0055;
+}
+
+.dropdown-item:hover {
+	background-color: #2a0055;
+	color: white;
+}
+
+.dropdown-menu {
+	border: 1px solid #2a0055;
+}
+
