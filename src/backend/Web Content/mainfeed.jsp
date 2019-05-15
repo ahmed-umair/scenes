@@ -1,3 +1,4 @@
+<%@page import="backend.Scenez_Connection"%>
 <%@page import="backend.Friend_Pair"%>
 <%@page import="backend.Scenez_IS_FRIENDS_WITH"%>
 <%@page import="backend.Scenez_LOCATION"%>
@@ -24,12 +25,13 @@
 
 <body>
 <%
-	Scenes_USER usr_data = new Scenes_USER();
-	Scenez_grp_invite grp_data = new Scenez_grp_invite();
-	Scenez_EVENT event_Data = new Scenez_EVENT();
-	Scenez_LOCATION location_data = new Scenez_LOCATION();
-	Scenez_EventTag tag_data = new Scenez_EventTag();
-	Scenez_IS_FRIENDS_WITH friends_data = new Scenez_IS_FRIENDS_WITH();
+	Scenez_Connection global_Connection = new Scenez_Connection();
+	Scenes_USER usr_data = new Scenes_USER(global_Connection.getConnection());
+	Scenez_grp_invite grp_data = new Scenez_grp_invite(global_Connection.getConnection());
+	Scenez_EVENT event_Data = new Scenez_EVENT(global_Connection.getConnection());
+	Scenez_LOCATION location_data = new Scenez_LOCATION(global_Connection.getConnection());
+	Scenez_EventTag tag_data = new Scenez_EventTag(global_Connection.getConnection());
+	Scenez_IS_FRIENDS_WITH friends_data = new Scenez_IS_FRIENDS_WITH(global_Connection.getConnection());
 %>
 	<nav class="navbar navbar-light d-flex sticky-top border" style="background-color: #2A0055;">
 		<div class="container col-sm-12 d-flex justify-content-between">
@@ -56,8 +58,6 @@
 				<div class="col-sm-1">
 					<a href="#"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right"></i></a>
 				</div>
-
-
 
 
 				<!-- PROFILE PICTURE -->
@@ -153,7 +153,7 @@
 				<img src="dancing.jpg" class="img-responsive d-inline-block mr-3 rounded border-dark" alt="Image">
 				<div class="col-sm-8">
 					<div class="d-flex justify-content-between align-items-center">
-					<a href="#" class="display-4 mb-1 ml-2 d-inline to-be-grey"><%= currentEvent.getName() %></a>
+					<a href="viewEvent.jsp?value=<%=currentEvent.getId()%>" class="display-4 mb-1 ml-2 d-inline to-be-grey"><%= currentEvent.getName() %></a>
 					</div>
 					<p class="ml-2 pl-2 mb-2"><strong class="to-be-grey">Event created by: </strong><a href="#">
 						<%= usr_data.getFirstNameAsString(currentEvent.getEmail()) + " " +  usr_data.getLastNameAsString(currentEvent.getEmail())%>
@@ -186,21 +186,14 @@
 
 		</div>       <!-- Feed div ends here -->
 
-
-
-
-
-
+		
 		<!-- *************** RIGHT COLUMN *************** -->
 		<div class="container d-flex justify-content-start border-left float-right col-lg-2 make-me-sticky">
 			<div id="right-col" class="col-lg-12 mr-2 ">
 				<div id="trending-events" class="row d-flex col-lg-12 mt-4 mb-4 border-bottom pb-4">
 					<h5 class="to-be-grey"><strong>My Events</strong></h5>
 					<nav class="nav flex-column">
-<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Active</a> -->
-<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a> -->
-<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Link</a> -->
-<!-- 						<a class="nav-link row tbp" href="#"><i class="fas fa-users"></i> Disabled</a> -->
+
 						<%
 						 for (int i = 0; i < event_Data.getEventNamesAsList(session.getAttribute("email").toString()).size(); i++  )
 							{
