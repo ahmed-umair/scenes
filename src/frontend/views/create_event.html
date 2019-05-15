@@ -88,9 +88,9 @@
 
     <div id="main-view-pane" class="container-fluid align-items-start col-sm-8 d-inline-block feed">
         <div id="event-title" class="row ">
-            <h2 style="color: #4E4E4E; font-weight: 700;" class="mx-auto">Your Event</h2>
+            <h2 style="color: #4E4E4E; font-weight: 700;" class="mx-auto">Create Event</h2>
         </div>
-        <div id="event-metadata" class="row align-items-center mx-auto">
+        <div id="event-metadata" class="row align-items-start mx-auto">
             <div id="cover-img" class="col-sm-6 py-0 border">
                 <img src="image.jpg" class="img-responsive col-sm-12">
             </div>
@@ -99,6 +99,18 @@
                 <div class="row">
                     <div class="col">
                         <h5>Details:</h5>
+
+                        <div class="row align-items-center">
+                            <div class="col-sm-3 my-2">
+                                <label for="event-name">
+                                    <h6>Event Name </h6>
+                                </label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="event-name" id="event-name"
+                                    placeholder="Enter a name for your event">
+                            </div>
+                        </div>
                         <div class="row align-items-center">
                             <div class="col-sm-3 my-2">
                                 <label for="location">
@@ -152,7 +164,8 @@
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="inputGroupFile01"
                             aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose cover image for this event</label>
+                        <label class="custom-file-label" for="inputGroupFile01">Choose cover image for this
+                            event</label>
                     </div>
                 </div>
                 <div class="col-sm-6">

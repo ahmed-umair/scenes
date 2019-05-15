@@ -42,6 +42,25 @@
 	color:#f1f1f1;
 }
 
+/* ********* LEFT COLUMN ********* */
+.badge-tag {
+	color: #fff;
+	background-color: #2A0055;
+	border: 1px solid #fff;
+	transition: color .15s ease-in-out,
+				background-color .15s ease-in-out,
+				border .15s ease-in-out,
+				box-shadow .15s ease-in-out;
+}
+
+.badge-tag:hover {
+	color: #2A0055;
+	background-color: #fff;
+	text-decoration: none;
+	border: 1px solid #2A0055;
+	border-color: #2A0055;
+}
+
 /* ********* RIGHT COLUMN ********* */
 
 /* TRENDING EVENTS */
