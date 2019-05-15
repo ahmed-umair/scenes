@@ -1,5 +1,6 @@
 package backend;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +17,11 @@ public class Scenez_grp_invite {
 	public Scenez_grp_invite()
 	{
 		s_con = new Scenez_Connection();
+	}
+	
+	public Scenez_grp_invite(Connection con)
+	{
+		s_con = new Scenez_Connection(con);
 	}
 	
 	//Invitee will be the current user

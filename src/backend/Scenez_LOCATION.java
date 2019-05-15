@@ -1,5 +1,6 @@
 package backend;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,6 +12,11 @@ public class Scenez_LOCATION {
 	public Scenez_LOCATION()
 	{
 		s_con = new Scenez_Connection();
+	}
+	
+	public Scenez_LOCATION(Connection con)
+	{
+		s_con = new Scenez_Connection(con);
 	}
 	
 	public String getLocationSpecificsByID(int id)

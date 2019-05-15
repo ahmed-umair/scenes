@@ -1,5 +1,6 @@
 package backend;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,11 @@ public class Scenez_IS_FRIENDS_WITH {
 	public Scenez_IS_FRIENDS_WITH()
 	{
 		s_con = new Scenez_Connection();
+	}
+	
+	public Scenez_IS_FRIENDS_WITH(Connection con)
+	{
+		s_con = new Scenez_Connection(con);
 	}
 	
 	public ArrayList<Friend_Pair> getAllFriendsAsList(String email)
@@ -41,7 +47,22 @@ public class Scenez_IS_FRIENDS_WITH {
 	
 	public int getFriendsCountByEmail(String email)
 	{
-		return 0;
+		String query = "SELECT count(status) " + 
+				"FROM project.is_friends_with " + 
+				"WHERE user1 = ? OR user2 = ? and status='Accepted'";
+		try {
+			PreparedStatement st = s_con.getConnection().prepareStatement(query);
+			st.setString(1, email);
+			st.setString(2, email);
+			ResultSet rs = st.executeQuery();
+			while (rs.next())
+			{
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 
 }
