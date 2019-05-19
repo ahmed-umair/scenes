@@ -3,6 +3,7 @@ package backend;
 import java.sql.*;
 import java.util.ArrayList;
 
+
 public class Scenez_EVENT {
 	
 	//Properties
@@ -178,9 +179,95 @@ public class Scenez_EVENT {
 		return null;
 	}
 	
-	
-	public static void main(String[] args) {
-		
+	public int getEventHostedCount(String email)
+	{
+		String query = "SELECT count(*) " + 
+				"FROM project.event " + 
+				"WHERE email = ?";
+		try {
+			PreparedStatement st = s_con.getConnection().prepareStatement(query);
+			st.setString(1, email);
+			ResultSet rs = st.executeQuery();
+			while (rs.next())
+			{
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 
+	public int getEventAttendedCount(String email)
+	{
+		String query = "SELECT count(distinct event_id) " + 
+				"FROM project.event_invite " + 
+				"WHERE event_id in (select id from project.event where event_date < curdate()) " + 
+				"AND ((inviter = ?) OR (invitee = ? AND status = 'Accepted'))";
+		try {
+			PreparedStatement st = s_con.getConnection().prepareStatement(query);
+			st.setString(1, email);
+			st.setString(2, email);
+			ResultSet rs = st.executeQuery();
+			while (rs.next())
+			{
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	public ArrayList<Inviter_Invitee_Info> getAttendedEventsAsList(String email)
+	{
+		String query = "SELECT inviter, invitee, event_id " + 
+				"FROM project.event_invite " + 
+				"WHERE event_id in (select id from project.event where event_date < curdate()) " + 
+				"AND event_id not in (select id from project.event where email = ?) " + 
+				"AND (invitee = ? AND status = 'Accepted')";
+		ArrayList<Inviter_Invitee_Info> attended_events = new ArrayList<>();
+		
+		try {
+			PreparedStatement st = s_con.getConnection().prepareStatement(query);
+			st.setString(1, email);
+			st.setString(2, email);
+			ResultSet rs = st.executeQuery();
+			while (rs.next())
+			{
+				Inviter_Invitee_Info curr_event_info = new Inviter_Invitee_Info();
+				curr_event_info.setInviter(rs.getString(1));
+				curr_event_info.setInvitee(rs.getString(2));
+				curr_event_info.setEvent_id(rs.getInt(3));
+				attended_events.add(curr_event_info);
+			}
+			return attended_events;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public String getHostEmailByID(int id)
+	{
+		String query = "SELECT email " + 
+				"FROM project.event " + 
+				"WHERE id=?";
+		try {
+			PreparedStatement st = s_con.getConnection().prepareStatement(query);
+			st.setInt(1, id);
+			ResultSet rs = st.executeQuery();
+			while (rs.next())
+			{
+				return rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 }
