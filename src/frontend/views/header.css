@@ -12,8 +12,8 @@
 }
 
 @keyframes example {
-	0%   {color: red;}
-	50%  {color: #2A0055}
+	50%   {color: #ff8b89;}
+	100%  {color: #2A0055}
   }
 
 .animate{
