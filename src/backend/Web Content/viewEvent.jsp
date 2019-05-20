@@ -268,7 +268,7 @@
                         <div class="row my-2">
                             <label for="my-input">Comment</label>
                             <form class="form" action="postComment.jsp">
-                            <textarea id="my-input" name=<%currentPost.getId(); %> class="form-control" rows="3"></textarea>
+                            <textarea id="my-input" required name=<%currentPost.getId(); %> class="form-control" rows="3"></textarea>
                             </form>
                         </div>
                         <div class="row my-2 justify-content-end">
@@ -284,11 +284,11 @@
                         </div>
                         <div class="row my-2">
                             <label for="">Post Title</label>
-                            <input id="" name="post-title" class="form-control" type="text">
+                            <input id="" required name="post-title" class="form-control" type="text">
                         </div>
                         <div class="row my-2">
                             <label for="my-input">Post Content</label>
-                            <textarea id="my-input" name="post-content" class="form-control" rows="3"></textarea>
+                            <textarea id="my-input" required name="post-content" class="form-control" rows="3"></textarea>
                         </div>
                         <div class="row my-2 justify-content-end">
                             <button type="submit" class="btn btn-outline-dark my-btn">Make New Post</button>
@@ -361,7 +361,7 @@
             <div class="float-right col-2">
                 <p class="mb-1 " style="letter-spacing: 1px;">JOIN OUR NEWSLETTER</p>
                 <form action="#" id="newsletter" class="row align-items-center">
-                    <input type="email" id="newsletter-input"
+                    <input type="email" required id="newsletter-input"
                         class="col-sm-8 bg-dark rounded form-control-sm border-1 px-2 ml-auto">
                     <button class="btn btn-sm btn-outline-light text-light bg-transparent ml-auto mr-auto"
                         type="submit">JOIN</button>
@@ -372,7 +372,7 @@
         <!-- CREDITS -->
         <div class="row mt-2">
             <div class="credits col d-block mb-0">
-                <p class="mb-0">© Codeplay | All Right Reserved</p>
+                <p class="mb-0">ï¿½ Codeplay | All Right Reserved</p>
             </div>
         </div>
 
