@@ -258,111 +258,178 @@
     <!-- **************************************************************************************************** -->
     <!-- **************************************************************************************************** -->
 
-    <div id="main-view-pane" class="container-fluid align-items-start col-sm-8 d-inline-block feed">
-        <div id="event-title" class="row mb-2">
-            <h4 style="color: #4E4E4E; font-weight: 400;" class="mx-auto display-4">Create your event</h4>
-        </div>
-        <hr class="end-of-post-hr mb-5">
+    <div id="main-view-pane"
+		class="container-fluid align-items-start col-sm-8 d-inline-block feed">
+		<div id="event-title" class="row mb-2">
+			<h4 style="color: #4E4E4E; font-weight: 400;"
+				class="mx-auto display-4">Create your event</h4>
+		</div>
+		<hr class="end-of-post-hr mb-5">
 
-        <!-- Event info -->
-        <div id="event-metadata" class="row align-items-start mx-auto">
-            <!-- Image -->
-            <div id="cover-img" class="col-sm-5">
-                    <input type="file" name="image" id="image" style="display:none;"/>
+		<!-- Event info -->
+		<div id="event-metadata" class="row align-items-start mx-auto">
+			<!-- Image -->
+			<div id="cover-img" class="col-sm-5">
+				<!--                     <input type="file" name="image" id="image" style="display:none;"/> -->
+				<img src="upload.jpg"
+					class="img-responsive col-sm-12 px-0 event-pic border-none">
+			</div>
 
-                <img src="upload.jpg" class="img-responsive col-sm-12 px-0 event-pic border-none">
-            </div>
+			<!-- DETAILS -->
+			<div id="event-metadata-text" class="col">
+				<div class="row">
+					<div class="col">
+						<h4 class="tbg font-weight-bold mb-4">Event Details</h4>
 
-            <!-- DETAILS -->
-            <div id="event-metadata-text" class="col">
-                <div class="row">
-                    <div class="col">
-                        <h4 class="tbg font-weight-bold mb-4">Event Details</h4>
+						<div class="row align-items-center">
+							<div class="col-sm-3 my-2">
+								<label for="event-name">
+									<h6 class="tbg">Event Name*:</h6>
+								</label>
+							</div>
+							<div class="col-sm-9">
+								<input type="text" required class="form-control"
+									name="event_name" id="event-name"
+									placeholder="Enter a name for your event">
+							</div>
+						</div>
+						<div class="row align-items-center">
+							<div class="col-sm-3 my-2">
+								<label for="location">
+									<h6 class="tbg">Location*:</h6>
+								</label>
+							</div>
+							<div class="col-sm-9">
+								<input type="text" required class="form-control" name="location"
+									id="location" placeholder="Enter a location">
+							</div>
+						</div>
 
-                        <div class="row align-items-center">
-                            <div class="col-sm-3 my-2">
-                                <label for="event-name">
-                                    <h6 class="tbg">Event Name </h6>
-                                </label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="event-name" id="event-name"
-                                    placeholder="Enter a name for your event">
-                            </div>
-                        </div>
-                        <div class="row align-items-center">
-                            <div class="col-sm-3 my-2">
-                                <label for="location">
-                                    <h6 class="tbg">Location: </h6>
-                                </label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="location" id="location"
-                                    placeholder="Enter a location">
-                            </div>
-                        </div>
+						<div class="row align-items-center">
+							<div class="col-sm-3 my-2">
+								<label for="capacity">
+									<h6 class="tbg">Capacity:</h6>
+								</label>
+							</div>
+							<div class="col-sm-9">
+								<input type="number" class="form-control" name="capacity"
+									id="capacity"
+									placeholder="Enter the max capacity for this event">
+							</div>
+						</div>
 
-                        <div class="row align-items-center">
-                            <div class="col-sm-3 my-2">
-                                <label for="date">
-                                    <h6 class="tbg">Date:</h6>
-                                </label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="date" class="form-control" name="date" id="location">
-                            </div>
-                        </div>
+						<div class="row align-items-center">
+							<div class="col-sm-3 my-2">
+								<label for="privacy">
+									<h6 class="tbg">Privacy:</h6>
+								</label>
+							</div>
+							<div class="col-sm-9">
+								<select class="form-control" name="privacy"
+									id="exampleFormControlSelect1">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+						</div>
 
-                        <div class="row align-items-center">
-                            <div class="col-sm-3 my-2">
-                                <label for="time">
-                                    <h6 class="tbg">Time: </h6>
-                                </label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="time" class="form-control" name="time" id="location">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mx-auto align-items-center">
-                    <div class="form-group col px-0">
-                        <label for="event-tags">
-                            <h6 class="tbg">Tags:</h6>
-                        </label>
-                        <textarea id="event-tags" class="form-control" rows="3"
-                            placeholder="Enter a comma-separated list of tags here (200 characters max). . ." maxlength="200"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
+						<div class="row align-items-center">
+							<div class="col-sm-3 my-2">
+								<label for="date">
+									<h6 class="tbg">Date*:</h6>
+								</label>
+							</div>
+							<div class="col-sm-9">
+								<input type="date" required class="form-control" name="date"
+									id="location">
+							</div>
+						</div>
 
-        <div id="event-description" class="container-fluid">
-            <div class="row align-items-center ">
-                <div class="col-sm-5">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose cover image for this
-                            event</label>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="event-description">
-                            <h6 class="tbg">Enter a description for this event</h6>
-                        </label>
-                        <textarea id="event-description" class="form-control"
-                            placeholder="Please enter a description here..." rows="3"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="row my-2 justify-content-end mx-auto">
-                <button type="submit" class="btn btn-outline-dark my-btn">Create Event</button>
-            </div>
-        </div>
-    </div>
+						<div class="row align-items-center">
+							<div class="col-sm-3 my-2">
+								<label for="time">
+									<h6 class="tbg">Time*:</h6>
+								</label>
+							</div>
+							<div class="col-sm-9">
+								<input type="time" required class="form-control" name="time"
+									id="location">
+							</div>
+						</div>
 
+						<div class="row align-items-center">
+							<div class="col-sm-3 my-2">
+								<label for="duration">
+									<h6 class="tbg">Approximate Duration*:</h6>
+								</label>
+							</div>
+							<div class="col-sm-9">
+								<input type="number" required class="form-control"
+									name="duration" id="location">
+							</div>
+						</div>
+
+						<div class="row align-items-center">
+							<div class="col-sm-3 my-2">
+								<label for="category">
+									<h6 class="tbg">Category*:</h6>
+								</label>
+							</div>
+							<div class="col-sm-9">
+								<select class="form-control" name="category"
+									id="exampleFormControlSelect1">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mx-auto align-items-center">
+					<div class="form-group col px-0">
+						<label for="event-tags">
+							<h6 class="tbg">Tags*:</h6>
+						</label>
+						<textarea id="event-tags" required class="form-control" rows="3"
+							placeholder="Enter a comma-separated list of tags here (200 characters max). . ."
+							maxlength="200"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="event-description" class="container-fluid">
+			<div class="row align-items-center ">
+				<div class="col-sm-5">
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="inputGroupFile01"
+							aria-describedby="inputGroupFileAddon01"> <label
+							class="custom-file-label" for="inputGroupFile01">Choose
+							cover image for this event</label>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="event-description">
+							<h6 class="tbg">Enter a description for this event*</h6>
+						</label>
+						<textarea required id="event-description" class="form-control"
+							placeholder="Please enter a description here..." rows="3"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row my-2 justify-content-end mx-auto">
+				<button type="submit" class="btn btn-outline-dark my-btn">Create
+					Event</button>
+			</div>
+		</div>
+	</div>
     <!-- FOOTER -->
     <footer class="footer container-fluid col-sm-12 justify-content-between mt-5 fixed-bottom"
         style="background-color: #303030;">
