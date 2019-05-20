@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Create an event | Scenez</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" type="text/css" href="mainfeed.css"> -->
+	<link rel="stylesheet" type="text/css" href="common.css">
+    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" type="text/css" href="create_event.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<body>
+	<nav class="navbar navbar-light d-flex sticky-top" style="background-color: #2A0055;">
+		<div class="container col-sm-12 d-flex justify-content-between">
+			<div class="row col-sm-12 align-items-center">
+
+				<!--LOGO-->
+				<div class="col-sm-2 float-left ">
+					<a class="navbar-brand" href="#"><img src="logo.png" class="logo ml-auto"></a>
+				</div>
+
+				<!--HOME BUTTON-->
+				<div class="col-sm-1 ">
+					<a href="#"><i class="fa fa-home fa-2x fa-fw neeche_button my-auto float-left"></i></a>
+				</div>
+
+
+				<!-- SEARCH BAR -->
+				<div class="col">
+					<form class="form-inline">
+						<input type="text" name="searchBar" placeholder="Search bar..." class="col search_bar ml-auto">
+						<button type="submit" class="search_bar col-sm-1 d-inline" id="search_button">
+							<i class="fa fa-search "></i>
+						</button>
+					</form>
+				</div>
+
+
+				<!--NOTIFICATIONS BUTTON-->
+				<div class="col-sm-1">
+					<a href="#"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right"></i></a>
+				</div>
+
+
+				<!-- PROFILE PICTURE -->
+				<div class="text-center col-sm-2">
+					<div class=" float-right">
+						<a href="logout.jsp"><img src="bandi.jpg" class="profile_picture"></a>
+						<label class="name d-block"><strong>
+								<div class="dropdown show">
+									<a class="name dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Ivana Bouchard
+									</a>
+
+									<div class="dropdown-menu" id="pic-dropdown" aria-labelledby="dropdownMenuLink">
+										<a class="dropdown-item option" href="#">View Profile</a>
+										<a class="dropdown-item option" href="#">Settings</a>
+										<a class="dropdown-item option" href="#">Logout</a>
+									</div>
+								</div>
+							</strong></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- *************** LEFT COLUMN *************** -->
+	<div class="container d-flex justify-content-start border-right float-left col-sm-2 make-me-sticky">
+		<div id="left-col" class="col-sm-12 ml-2 ">
+
+			<!-------- GROUPS --------->
+			<div id="groups" class="row d-flex mt-4 mb-4 border-bottom pb-4">
+				<!-- GROUPS HEADING -->
+				<div id="group-header" class="row justify-content-center">
+					<h5 class="tbg col-sm-12"><strong>My Groups</strong></h5>
+				</div>
+
+				<div id="group-list" class="row mx-auto">
+					<nav class="nav col-sm-12 mx-auto">
+						<div class="row align-items-center">
+							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Orgy Central</a>
+						</div>
+						<div class="row">
+							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Assault on Aayan Nusrat's
+								House</a>
+						</div>
+						<div class="row">
+							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Lez go partayy</a>
+						</div>
+						<div class="row">
+							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Getting collective FZ in
+								EEE</a>
+						</div>
+					</nav>
+					<div class="row">
+						<div class="col-sm-12">
+							<a href="#" id="see-more" class="link"><strong>See more</strong></a>
+						</div>
+					</div>
+				</div>
+				<!-- LIST OF GROUPS -->
+				<div class="row">
+					<div class="col-sm-12">
+						<button id="create-group-btn" class="btn btn-sm btn-outline-dark mt-3 col mx-auto my-btn">Create
+							Group</button>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-------- POPULAR TAGS --------->
+			<div id="pop-tags" class="row d-flex">
+				<!-- HEADING -->
+				<div class="row">
+					<h5 class="tbg col"><strong>Popular Tags</strong></h5>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-10">
+						<a href="#" class="badge badge-tag d-inline">Primary</a>
+						<a href="#" class="badge badge-tag d-inline">Secondary</a>
+						<a href="#" class="badge badge-tag d-inline">Success</a>
+						<a href="#" class="badge badge-tag d-inline">Danger</a>
+						<a href="#" class="badge badge-tag d-inline">Warning</a>
+						<a href="#" class="badge badge-tag d-inline">Info</a>
+						<a href="#" class="badge badge-tag d-inline">Light</a>
+						<a href="#" class="badge badge-tag d-inline">Dark</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid col-sm-8 d-inline-block feed">
+
+	</div>
+
+
+	<!-- *************** RIGHT COLUMN *************** -->
+	<div class="container d-flex justify-content-start border-left float-right col-sm-2 make-me-sticky">
+
+		<div id="right-col" class="col-sm-12 px-0">
+
+			<!-------- TRENDING EVENTS --------->
+			<div id="trending-events" class="row d-flex col-sm-12 mt-3 mb-0 pb-0 px-3">
+				<h5 class="tbg"><strong>Upcoming Events</strong></h5>
+				<p id="sort-prompt" class="tbp col-sm-12 px-0 py-0 mb-3">Sorted by: date</p>
+
+				<nav class="nav flex-column">
+
+					<!-- Event 1 -->
+					<div class="mb-4 trending-event-instance">
+						<a href="#">
+							<h4 class="tbg trending-event-heading mb-0">John Smith's Concert</h4>
+							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
+							<span class="tbp" style="font-size: 0.8rem;">Ankara Concert Association</span>
+						</a>
+					</div>
+
+					<!-- Event 2 -->
+					<div class="mb-4">
+						<a href="#">
+							<h4 class="tbg trending-event-heading mb-0">Bilkent vs. NUST</h4>
+							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
+							<span class="tbp" style="font-size: 0.8rem;">Bilkent Football Club</span>
+						</a>
+					</div>
+
+					<!-- Event 3 -->
+					<div class="mb-4">
+						<a href="#">
+							<h4 class="tbg trending-event-heading mb-0">Women's March</h4>
+							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
+							<span class="tbp" style="font-size: 0.8rem;">Women Rights Association</span>
+						</a>
+					</div>
+
+				</nav>
+			</div>
+
+			<!-------- CHAT --------->
+			<div id="chat" class="col-sm-12 px-0">
+				<div class="row d-flex justify-content-end align-items-center pt-1"
+					style="border-top: 1px solid #707070;">
+					<div class="col-sm-5 my-0">
+						<h5 class="tbg"><strong>Chats</strong></h5>
+					</div>
+					<div class="col-sm-7 my-0 px-3 ">
+						<a href="#" class="view-all-chats float-right">View all chats</a> <!-- view all chats -->
+					</div>
+				</div>
+
+				<!-- Friend 1 -->
+				<a href="#" class="chat-link">
+					<div class="row chat-box border-bottom py-2 d-flex justify-content-start align-items-center">
+						<div class="col-sm-3">
+							<img src="celebration.jpg" alt="" class="chat-pic">
+						</div>
+						<div class="col-sm-8">
+							<h5 class="friend-name tbp mb-0">Tamim Akhtar</h5>
+						</div>
+					</div>
+				</a>
+
+				<!-- Friend 2 -->
+				<a href="#" class="chat-link">
+					<div class="row chat-box py-2 d-flex justify-content-start align-items-center">
+						<div class="col-sm-3">
+							<img src="david.jpg" alt="" class="chat-pic">
+						</div>
+						<div class="col-sm-8">
+							<h5 class="friend-name tbp mb-0">Hamza Ashfaq</h5>
+						</div>
+					</div>
+				</a>
+
+				<!-- Friend 3 -->
+				<a href="#" class="chat-link">
+					<div class="row chat-box py-2 d-flex justify-content-start align-items-center">
+						<div class="col-sm-3">
+							<img src="bandi.jpg" alt="" class="chat-pic">
+						</div>
+						<div class="col-sm-8">
+							<h5 class="friend-name tbp mb-0">Rameez Hashmi</h5>
+						</div>
+					</div>
+				</a>
+
+				<!-- Friend 4 -->
+				<a href="#" class="chat-link">
+					<div class="row chat-box py-2 d-flex justify-content-start align-items-center">
+						<div class="col-sm-3">
+							<img src="dancing.jpg" alt="" class="chat-pic">
+						</div>
+						<div class="col-sm-8">
+							<h5 class="friend-name tbp mb-0">Talha Zeeshan</h5>
+						</div>
+					</div>
+				</a>
+
+			</div>
+		</div>
+    </div>
+    
+    
+    <!-- **************************************************************************************************** -->
+    <!-- **************************************************************************************************** -->
+    <!-- **************************************************************************************************** -->
+
+    <div id="main-view-pane" class="container-fluid align-items-start col-sm-8 d-inline-block feed">
+        <div id="event-title" class="row mb-2">
+            <h4 style="color: #4E4E4E; font-weight: 400;" class="mx-auto display-4">Create your event</h4>
+        </div>
+        <hr class="end-of-post-hr mb-5">
+
+        <!-- Event info -->
+        <div id="event-metadata" class="row align-items-start mx-auto">
+            <!-- Image -->
+            <div id="cover-img" class="col-sm-5">
+                    <input type="file" name="image" id="image" style="display:none;"/>
+
+                <img src="upload.jpg" class="img-responsive col-sm-12 px-0 event-pic border-none">
+            </div>
+
+            <!-- DETAILS -->
+            <div id="event-metadata-text" class="col">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="tbg font-weight-bold mb-4">Event Details</h4>
+
+                        <div class="row align-items-center">
+                            <div class="col-sm-3 my-2">
+                                <label for="event-name">
+                                    <h6 class="tbg">Event Name </h6>
+                                </label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="event-name" id="event-name"
+                                    placeholder="Enter a name for your event">
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-sm-3 my-2">
+                                <label for="location">
+                                    <h6 class="tbg">Location: </h6>
+                                </label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="location" id="location"
+                                    placeholder="Enter a location">
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center">
+                            <div class="col-sm-3 my-2">
+                                <label for="date">
+                                    <h6 class="tbg">Date:</h6>
+                                </label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" name="date" id="location">
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center">
+                            <div class="col-sm-3 my-2">
+                                <label for="time">
+                                    <h6 class="tbg">Time: </h6>
+                                </label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="time" class="form-control" name="time" id="location">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-auto align-items-center">
+                    <div class="form-group col px-0">
+                        <label for="event-tags">
+                            <h6 class="tbg">Tags:</h6>
+                        </label>
+                        <textarea id="event-tags" class="form-control" rows="3"
+                            placeholder="Enter a comma-separated list of tags here (200 characters max). . ." maxlength="200"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="event-description" class="container-fluid">
+            <div class="row align-items-center ">
+                <div class="col-sm-5">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose cover image for this
+                            event</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="event-description">
+                            <h6 class="tbg">Enter a description for this event</h6>
+                        </label>
+                        <textarea id="event-description" class="form-control"
+                            placeholder="Please enter a description here..." rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-2 justify-content-end mx-auto">
+                <button type="submit" class="btn btn-outline-dark my-btn">Create Event</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer container-fluid col-sm-12 justify-content-between mt-5 fixed-bottom"
+        style="background-color: #303030;">
+
+        <!-- LOGO -->
+        <div class="row d-flex justify-content-betweens align-items-center">
+            <div class="col-2 footer-logo d-block float-left ">
+                <img src="logo.png">
+            </div>
+
+            <!-- INFO -->
+            <div class="col links d-inline-block my-auto justify-content-around">
+                <a href="#">HOME</a>
+                <label for=""> | </label>
+                <a href="#">ABOUT</a>
+                <label for=""> | </label>
+                <a href="#">SUPPORT</a>
+                <label for=""> | </label>
+                <a href="#">CONTACT</a>
+            </div>
+
+            <!-- NEWSLETTER -->
+            <div class="float-right col-2">
+                <p class="mb-1 " style="letter-spacing: 1px;">JOIN OUR NEWSLETTER</p>
+                <form action="#" id="newsletter" class="row align-items-center">
+                    <input type="email" id="newsletter-input"
+                        class="col-sm-8 bg-dark rounded form-control-sm border-1 px-2 ml-auto">
+                    <button class="btn btn-sm btn-outline-light text-light bg-transparent ml-auto mr-auto"
+                        type="submit">JOIN</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- CREDITS -->
+        <div class="row mt-2">
+            <div class="credits col d-block mb-0">
+                <p class="mb-0">© Codeplay | All Right Reserved</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
