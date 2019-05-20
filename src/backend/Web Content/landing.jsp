@@ -26,8 +26,8 @@
 	  		<!-- <span class="normalText" style="font-size: 28px;">Login</span> -->
 	  		<span class="normalText" id="signupSuggestion" style="font-size: 1em;">Don't have an account? <br> Join Scenez today. <a href="/signup"><span class="link">Sign up.</span></a></span>
 	  	</div>
-	    <input class="form-control mr-sm-2" type="email" name="username" placeholder="username..." aria-label="Search">
-	    <input class="form-control mr-sm-2" type="password" name="password" placeholder="password..." aria-label="Search">
+	    <input class="form-control mr-sm-2" type="email" required name="username" placeholder="username..." aria-label="Search">
+	    <input class="form-control mr-sm-2" type="password" required name="password" placeholder="password..." aria-label="Search">
 
 	    <a href="#" class="link" style="float: left; font-size: 13px; padding-left: 5px; padding-top: 5px;">Forgot your password?</a>
 	    <button class="btn btn-outline-light" type="submit">Login</button>

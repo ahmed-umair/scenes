@@ -1,3 +1,21 @@
+<%@page import="backend.Scenez_Comments"%>
+<%@page import="backend.Scenez_PostBean"%>
+<%@page import="backend.Scenez_Connection"%>
+<%@page import="backend.Friend_Pair"%>
+<%@page import="backend.Scenez_IS_FRIENDS_WITH"%>
+<%@page import="backend.Scenez_LOCATION"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="backend.Scenez_EventBean"%>
+<%@page import="backend.Scenes_USER"%>
+<%@page import="backend.Scenez_grp_invite"%>
+<%@page import="backend.Scenez_EVENT"%>
+<%@page import="backend.Scenez_EventTag"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="backend.Scenez_POST"%>
+<%@page import="backend.Scenez_Comments"%>
+<%@page import="backend.Scenez_CommentBean"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 
@@ -13,6 +31,17 @@
 	<link rel="stylesheet" type="text/css" href="header.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
 		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<%
+	Scenez_Connection global_Connection = new Scenez_Connection();
+	Scenes_USER usr_data = new Scenes_USER(global_Connection.getConnection());
+	Scenez_grp_invite grp_data = new Scenez_grp_invite(global_Connection.getConnection());
+	Scenez_EVENT event_Data = new Scenez_EVENT(global_Connection.getConnection());
+	Scenez_LOCATION location_data = new Scenez_LOCATION(global_Connection.getConnection());
+	Scenez_EventTag tag_data = new Scenez_EventTag(global_Connection.getConnection());
+	Scenez_IS_FRIENDS_WITH friends_data = new Scenez_IS_FRIENDS_WITH(global_Connection.getConnection());
+// 	Scenez_POST post_data = new Scenez_POST(global_Connection.getConnection());
+// 	Scenez_Comments comment_data = new Scenez_Comments(global_Connection.getConnection());
+%>
 </head>
 
 <body>
@@ -44,15 +73,7 @@
 
 				<!--NOTIFICATIONS BUTTON-->
 				<div class="col-sm-1">
-					<a href="# dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right animate"></i>
-					</a>
-					<div class="dropdown-menu" id="pic-dropdown" aria-labelledby="dropdownMenuLink">
-						<a class="dropdown-item option pr-2" href="#">Friend Requests <span class="badge badge-pill badge-tag ml-2">2</span></a>
-						<a class="dropdown-item option pr-2" href="#">Chats<span class="badge badge-pill badge-tag ml-2 float-right">1</span></a>
-						<a class="dropdown-item option pr-2" href="#">Event Invites<span class="badge badge-pill badge-tag ml-2 float-right">7</span></a>
-						<a class="dropdown-item option pr-2" href="#">Group Invites<span class="badge badge-pill badge-tag ml-2 float-right">4</span></a>
-					</div>
+					<a href="#"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right"></i></a>
 				</div>
 
 
@@ -92,46 +113,38 @@
 					<h5 class="tbg col-sm-12"><strong>My Groups</strong></h5>
 				</div>
 
-				<div id="group-list" class="container mx-auto">
+				<div id="group-list" class="row mx-auto">
 					<nav class="nav col-sm-12 mx-auto list-group">
+					 <%
+							int x = 0;
+							for (; x < grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).size(); x++  )
+							{
+								if (x > 4)
+									break;
+							%>
 
-						<div class="row">
-							<div class="col-sm-12">
-								<a class="nav-link tbp d-inline-block" href="#"><i
-										class="fas fa-users mr-2"></i>Orgy</a>
-							</div>
-						</div>
-
 						<div class="row d-block">
 							<div class="col-sm-12">
 								<a class="nav-link tbp d-inline-block" href="#"><i
-										class="fas fa-users mr-2"></i>Sehri</a>
-							</div>
-						</div>
-						<div class="row d-block">
-							<div class="col-sm-12">
-								<a class="nav-link tbp d-inline-block" href="#"><i
-										class="fas fa-users mr-2"></i>Iftar</a>
-							</div>
-						</div>
-						<div class="row d-block">
-							<div class="col-sm-12">
-								<a class="nav-link tbp d-inline-block" href="#"><i
-										class="fas fa-users mr-2"></i>"Dinner"</a>
+										class="fas fa-users mr-2"></i><%= grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).get(x) %></a>
 							</div>
 						</div>
 					</nav>
+						<% } %>
+						<% if(x > 4){ %>
+					
 					<div class="row">
 						<div class="col-sm-12">
 							<a href="#" id="see-more" class="link"><strong>See more</strong></a>
 						</div>
 					</div>
+					<% } %>
 				</div>
 				<!-- LIST OF GROUPS -->
-				<div class="container px-0">
-					<div class="col-sm-8">
-						<button id="create-group-btn" class="btn btn-sm btn-outline-dark mt-3 col mx-auto my-btn">Create
-							Group</button>
+				<div class="container">
+					<div class="col-sm-12">
+						<a href="createGroup.jsp" id="create-group-btn" class="btn btn-sm btn-outline-dark mt-3 col mx-auto my-btn">Create
+							Group</a>
 					</div>
 
 				</div>
@@ -141,20 +154,20 @@
 			<!-------- POPULAR TAGS --------->
 			<div id="pop-tags" class="row d-flex">
 				<!-- HEADING -->
-				<div class="row d-block">
+				<div class="row">
 					<h5 class="tbg col"><strong>Popular Tags</strong></h5>
 				</div>
 
 				<div class="container px-0 d-block">
-					<div class="col">
-						<a href="#" class="badge badge-tag d-inline">Primary</a>
-						<a href="#" class="badge badge-tag d-inline">Secondary</a>
-						<!-- <a href="#" class="badge badge-tag d-inline">Success</a>
-						<a href="#" class="badge badge-tag d-inline">Danger</a>
-						<a href="#" class="badge badge-tag d-inline">Warning</a>
-						<a href="#" class="badge badge-tag d-inline">Info</a>
-						<a href="#" class="badge badge-tag d-inline">Light</a>
-						<a href="#" class="badge badge-tag d-inline">Dark</a> -->
+					<div class="col-sm-10">
+					<%
+							for (int i = 0; i < tag_data.getPopularTagsAsList().size(); i++)
+							{
+								if (i > 4)
+									break;
+							%>
+						<a href="#" class="badge badge-tag d-inline"><%= tag_data.getPopularTagsAsList().get(i) %></a>
+						<% } %>
 					</div>
 
 				</div>
@@ -177,34 +190,22 @@
 				<p id="sort-prompt" class="tbp col-sm-12 px-0 py-0 mb-3">Sorted by: date</p>
 
 				<nav class="nav flex-column">
-
+				<%
+					for (int i = 0; i < event_Data.getEventNamesAsList(session.getAttribute("email").toString()).size(); i++  )
+					{
+						if (i > 4)
+							break;
+				%>
 					<!-- Event 1 -->
 					<div class="mb-4 trending-event-instance">
 						<a href="#">
-							<h4 class="tbg trending-event-heading mb-0">John Smith's Concert</h4>
+							<h4 class="tbg trending-event-heading mb-0"><%= event_Data.getEventNamesAsList(session.getAttribute("email").toString()).get(i) %></h4>
 							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
 							<span class="tbp" style="font-size: 0.8rem;">Ankara Concert Association</span>
 						</a>
 					</div>
-
-					<!-- Event 2 -->
-					<div class="mb-4">
-						<a href="#">
-							<h4 class="tbg trending-event-heading mb-0">Bilkent vs. NUST</h4>
-							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
-							<span class="tbp" style="font-size: 0.8rem;">Bilkent Football Club</span>
-						</a>
-					</div>
-
-					<!-- Event 3 -->
-					<div class="mb-4">
-						<a href="#">
-							<h4 class="tbg trending-event-heading mb-0">Women's March</h4>
-							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
-							<span class="tbp" style="font-size: 0.8rem;">Women Rights Association</span>
-						</a>
-					</div>
-
+				<%  } %>
+					<a href="#" id="see-more" class="mx-auto"><strong>See more</strong></a>
 				</nav>
 			</div>
 
@@ -219,7 +220,13 @@
 						<a href="#" class="view-all-chats float-right">View all chats</a> <!-- view all chats -->
 					</div>
 				</div>
-
+				<%
+							ArrayList<Friend_Pair> users_friends = friends_data.getAllFriendsAsList(session.getAttribute("email").toString());
+							for (int i = 0; i < users_friends.size(); i++)
+							{
+									
+						%>
+				<%	if (users_friends.get(i).getRequester().equals(session.getAttribute("email").toString())) { %>
 				<!-- Friend 1 -->
 				<a href="#" class="chat-link">
 					<div class="row chat-box border-bottom py-2 d-flex justify-content-start align-items-center">
@@ -227,46 +234,25 @@
 							<img src="celebration.jpg" alt="" class="chat-pic">
 						</div>
 						<div class="col-sm-8">
-							<h5 class="friend-name tbp mb-0">Tamim Akhtar</h5>
+							<h5 class="friend-name tbp mb-0"><%= usr_data.getFirstNameAsString(users_friends.get(i).getRequested()) + usr_data.getLastNameAsString(users_friends.get(i).getRequested())%></h5>
 						</div>
 					</div>
 				</a>
-
-				<!-- Friend 2 -->
-				<a href="#" class="chat-link">
+			<% 		} else { %>
+			<a href="#" class="chat-link">
 					<div class="row chat-box py-2 d-flex justify-content-start align-items-center">
 						<div class="col-sm-3">
 							<img src="david.jpg" alt="" class="chat-pic">
 						</div>
 						<div class="col-sm-8">
-							<h5 class="friend-name tbp mb-0">Hamza Ashfaq</h5>
+							<h5 class="friend-name tbp mb-0"><%= usr_data.getFirstNameAsString( users_friends.get(i).getRequester()) + usr_data.getLastNameAsString(users_friends.get(i).getRequested())%></h5>
 						</div>
 					</div>
 				</a>
-
-				<!-- Friend 3 -->
-				<a href="#" class="chat-link">
-					<div class="row chat-box py-2 d-flex justify-content-start align-items-center">
-						<div class="col-sm-3">
-							<img src="bandi.jpg" alt="" class="chat-pic">
-						</div>
-						<div class="col-sm-8">
-							<h5 class="friend-name tbp mb-0">Rameez Hashmi</h5>
-						</div>
-					</div>
-				</a>
-
-				<!-- Friend 4 -->
-				<a href="#" class="chat-link">
-					<div class="row chat-box py-2 d-flex justify-content-start align-items-center">
-						<div class="col-sm-3">
-							<img src="dancing.jpg" alt="" class="chat-pic">
-						</div>
-						<div class="col-sm-8">
-							<h5 class="friend-name tbp mb-0">Talha Zeeshan</h5>
-						</div>
-					</div>
-				</a>
+								
+									<% 		} 	%>
+												
+									<%  } %>
 
 			</div>
 		</div>
