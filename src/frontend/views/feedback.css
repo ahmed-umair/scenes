@@ -21,11 +21,11 @@ input.star:checked ~ label.star:before {
 }
 
 input.star-5:checked ~ label.star:before {
-  color: #FE7;
-  text-shadow: 0 0 20px #952;
+  color: #2a0055;
+  text-shadow: 0 0 20px #5c1d9b;
 }
 
-input.star-1:checked ~ label.star:before { color: #F62; }
+input.star-1:checked ~ label.star:before { color: #2a0055; }
 
 label.star:hover { transform: rotate(-15deg) scale(1.3); }
 
