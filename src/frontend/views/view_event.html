@@ -279,7 +279,18 @@
                             <li>Date: 16 April 2019</li>
                             <li>Time: 09:00 - 16:00</li>
                         </ul>
-                    </div>
+										</div>
+										<div class="col text-right pr-5 mr-5">
+											<!-- DISABLED BUTTON -->
+											<button class="btn-md btn reverse-btn disabled" data-toggle="tooltip" data-placement="top" title="You can give feedback after the event has taken place.">
+												Give Feedback
+											</button>	
+											
+											<!-- NORMAL BUTTON -->
+											<!-- <button class="btn-md btn reverse-btn">
+												Give Feedback
+											</button>												 -->
+										</div>
                 </div>
                 <hr class="end-of-post-hr">
                 <div class="row py-1">
@@ -517,7 +528,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script>
+			$(function () {
+  			$('[data-toggle="tooltip"]').tooltip()
+			})
+		</script>
     
 </body>
 
