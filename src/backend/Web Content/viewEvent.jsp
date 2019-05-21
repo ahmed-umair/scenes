@@ -16,11 +16,11 @@
 <%@page import="backend.Scenez_CommentBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<jsp:include page="header.jsp" />
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>Event_Page | Scenez</title>
+<title>EVENT KA NAAM | Scenez</title>
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -56,271 +56,12 @@
 
 		Scenez_EventBean eventBean = event_Data.getSingleEventBean(eventId);
 	%>
-	<nav class="navbar navbar-light d-flex sticky-top"
-		style="background-color: #2A0055;">
-		<div class="container col-sm-12 d-flex justify-content-between">
-			<div class="row col-sm-12 align-items-center">
-
-				<!--LOGO-->
-				<div class="col-sm-2 float-left ">
-					<a class="navbar-brand" href="#"><img src="logo.png"
-						class="logo ml-auto"></a>
-				</div>
-
-				<!--HOME BUTTON-->
-				<div class="col-sm-1 ">
-					<a href="mainfeed.jsp"><i
-						class="fa fa-home fa-2x fa-fw neeche_button my-auto float-left"></i></a>
-				</div>
 
 
-				<!-- SEARCH BAR -->
-				<div class="col">
-					<form class="form-inline">
-						<input type="text" name="searchBar" placeholder="Search bar..."
-							class="col search_bar ml-auto">
-						<button type="submit" class="search_bar col-sm-1 d-inline"
-							id="search_button">
-							<i class="fa fa-search "></i>
-						</button>
-					</form>
-				</div>
+	<!-- **************************************************************************************************** -->
+	<!-- **************************************************************************************************** -->
+	<!-- **************************************************************************************************** -->
 
-
-				<!--NOTIFICATIONS BUTTON-->
-				<div class="col-sm-1">
-					<a href="#"><i
-						class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right"></i></a>
-				</div>
-
-
-				<!-- PROFILE PICTURE -->
-				<div class="text-center col-sm-2">
-					<div class=" float-right">
-						<a href="logout.jsp"><img src="bandi.jpg"
-							class="profile_picture"></a> <label class="name d-block"><strong>
-								<div class="dropdown show">
-									<a class="name dropdown-toggle" href="#" role="button"
-										id="dropdownMenuLink" data-toggle="dropdown"
-										aria-haspopup="true" aria-expanded="false"> <%=usr_data.getFirstNameAsString(session.getAttribute("email").toString()) + " "
-					+ usr_data.getLastNameAsString(session.getAttribute("email").toString())%>
-									</a>
-
-									<div class="dropdown-menu" id="pic-dropdown"
-										aria-labelledby="dropdownMenuLink">
-										<a class="dropdown-item option" href="#">View Profile</a> <a
-											class="dropdown-item option" href="#">Settings</a> <a
-											class="dropdown-item option" href="#">Logout</a>
-									</div>
-								</div>
-						</strong></label>
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>
-
-
-	<!-- *************** LEFT COLUMN *************** -->
-	<div
-		class="container d-flex justify-content-start border-right float-left col-sm-2 make-me-sticky">
-		<div id="left-col" class="col-sm-12 ml-2 ">
-
-			<!-------- GROUPS --------->
-			<div id="groups" class="row d-flex mt-4 mb-4 border-bottom pb-4">
-				<!-- GROUPS HEADING -->
-				<div id="group-header" class="row justify-content-center">
-					<h5 class="tbg col-sm-12">
-						<strong>My Groups</strong>
-					</h5>
-				</div>
-
-				<div id="group-list" class="row mx-auto">
-					<nav class="nav col-sm-12 mx-auto">
-						<%
-							int x = 0;
-							int size = grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).size();
-							for (; x < size; x++) {
-								if (x > 4)
-									break;
-						%>
-						<div class="row align-items-center">
-							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i><%=grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).get(x)%></a>
-						</div>
-						<%
-							}
-						%>
-						<%
-							if (x > 4) {
-						%>
-						<div class="row">
-							<div class="col-sm-12">
-								<a href="#" id="see-more" class="link"><strong>See
-										more</strong></a>
-							</div>
-						</div>
-						<%
-							}
-						%>
-					</nav>
-				</div>
-				<!-- LIST OF GROUPS -->
-				<div class="row">
-					<div class="col-sm-12">
-						<button id="create-group-btn"
-							class="btn btn-sm btn-outline-dark mt-3 col mx-auto my-btn">Create
-							Group</button>
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-------- POPULAR TAGS --------->
-			<div id="pop-tags" class="row d-flex">
-				<!-- HEADING -->
-				<div class="row">
-					<h5 class="tbg col">
-						<strong>Popular Tags</strong>
-					</h5>
-				</div>
-
-				<%
-					for (int i = 0; i < tag_data.getPopularTagsAsList().size(); i++) {
-						if (i > 4)
-							break;
-				%>
-				<div class="row">
-					<div class="col-sm-10">
-						<a href="#" class="badge badge-tag d-inline"><%=tag_data.getPopularTagsAsList().get(i)%></a>
-					</div>
-				</div>
-				<%
-					}
-				%>
-
-			</div>
-		</div>
-	</div>
-	<div class="container-fluid col-sm-8 d-inline-block feed"></div>
-
-
-	<!-- *************** RIGHT COLUMN *************** -->
-	<div
-		class="container d-flex justify-content-start border-left float-right col-sm-2 make-me-sticky">
-
-		<div id="right-col" class="col-sm-12 px-0">
-
-			<!-------- TRENDING EVENTS --------->
-			<div id="trending-events"
-				class="row d-flex col-sm-12 mt-3 mb-0 pb-0 px-3">
-				<h5 class="tbg">
-					<strong>My Events</strong>
-				</h5>
-				<p id="sort-prompt" class="tbp col-sm-12 px-0 py-0 mb-3">Sorted
-					by: date</p>
-
-				<nav class="nav flex-column">
-					<%
-						ArrayList<Scenez_EventBean> eventsAttending = new ArrayList<Scenez_EventBean>();
-						eventsAttending = event_Data.getEventNamesAsList(session.getAttribute("email").toString());
-						int eventsSize = eventsAttending.size();
-						for (int i = 0; i < eventsSize; i++) {
-							if (i > 4)
-								break;
-					%>
-					<!-- Event 1 -->
-					<div class="mb-4 trending-event-instance">
-						<a href="#">
-							<h4 class="tbg trending-event-heading mb-0"><%=eventsAttending.get(i).getName()%></h4>
-							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event
-								created by:</p> <span class="tbp" style="font-size: 0.8rem;"><%=usr_data.getFirstNameAsString(eventsAttending.get(i).getEmail()) + " "
-						+ usr_data.getLastNameAsString(eventsAttending.get(i).getEmail())%></span>
-						</a>
-					</div>
-					<%
-						}
-					%>
-					<div class="row">
-						<div class="col-sm-12">
-							<a href="#" id="see-more" class="link"><strong>See
-									more</strong></a>
-						</div>
-					</div>
-
-				</nav>
-			</div>
-
-			<!-------- CHAT --------->
-			<div id="chat" class="col-sm-12 px-0">
-				<div class="row d-flex justify-content-end align-items-center pt-1"
-					style="border-top: 1px solid #707070;">
-					<div class="col-sm-5 my-0">
-						<h5 class="tbg">
-							<strong>Chats</strong>
-						</h5>
-					</div>
-					<div class="col-sm-7 my-0 px-3 ">
-						<a href="#" class="view-all-chats float-right">View all chats</a>
-						<!-- view all chats -->
-					</div>
-				</div>
-
-				<!-- Friend 1 -->
-				<a href="#" class="chat-link">
-					<div
-						class="row chat-box border-bottom py-2 d-flex justify-content-start align-items-center">
-						<div class="col-sm-3">
-							<img src="celebration.jpg" alt="" class="chat-pic">
-						</div>
-						<div class="col-sm-8">
-							<h5 class="friend-name tbp mb-0">Tamim Akhtar</h5>
-						</div>
-					</div>
-				</a>
-
-				<!-- Friend 2 -->
-				<a href="#" class="chat-link">
-					<div
-						class="row chat-box py-2 d-flex justify-content-start align-items-center">
-						<div class="col-sm-3">
-							<img src="david.jpg" alt="" class="chat-pic">
-						</div>
-						<div class="col-sm-8">
-							<h5 class="friend-name tbp mb-0">Hamza Ashfaq</h5>
-						</div>
-					</div>
-				</a>
-
-				<!-- Friend 3 -->
-				<a href="#" class="chat-link">
-					<div
-						class="row chat-box py-2 d-flex justify-content-start align-items-center">
-						<div class="col-sm-3">
-							<img src="bandi.jpg" alt="" class="chat-pic">
-						</div>
-						<div class="col-sm-8">
-							<h5 class="friend-name tbp mb-0">Rameez Hashmi</h5>
-						</div>
-					</div>
-				</a>
-
-				<!-- Friend 4 -->
-				<a href="#" class="chat-link">
-					<div
-						class="row chat-box py-2 d-flex justify-content-start align-items-center">
-						<div class="col-sm-3">
-							<img src="dancing.jpg" alt="" class="chat-pic">
-						</div>
-						<div class="col-sm-8">
-							<h5 class="friend-name tbp mb-0">Talha Zeeshan</h5>
-						</div>
-					</div>
-				</a>
-
-			</div>
-		</div>
-	</div>
 
 
 	<div id="main-view-pane"
@@ -330,24 +71,51 @@
 				class="mx-auto display-4"><%=eventBean.getName()%></h4>
 		</div>
 		<hr class="end-of-post-hr mb-5">
-		<div id="event-metadata" class="row  mx-auto align-items-center mt-2">
-			<div id="cover-img" class="col">
-				<img src="image.jpg" class="img-responsive col-sm-12">
+		<div id="event-metadata" class="row  mx-auto align-items-start mt-2">
+			<div id="cover-img" class="col-sm-5">
+				<img src="celebration.jpg"
+					class="img-responsive col-sm-12 px-0 event-pic">
 			</div>
 
-			<div id="event-metadata-text" class="col ">
-				<div class="row ">
-					<div class="col">
+			<div id="event-metadata-text" class="col mt-4">
+				<div class="row d-flex justify-content-between">
+					<!-- <div class="col"> -->
+					<div class="row col-sm-12 mb-2">
 						<h5 class="tbg">Details:</h5>
+					</div>
+					<div class="col border-right mr-auto">
 						<ul class="list-unstyled tbp">
-							<li>Location: <%=location_data.getLocationSpecificsByID(eventBean.getLocation_id())%></li>
-							<li>Date: <%=eventBean.getEvent_date()%></li>
-							<li>Time: <%=eventBean.getStart_time()%></li>
+							<li><strong class="tbg">Location:</strong> <%=location_data.getLocationSpecificsByID(eventBean.getLocation_id())%></li>
+							<li><strong class="tbg">Date:</strong> <%=eventBean.getEvent_date()%></li>
+							<li><strong class="tbg">Time:</strong> <%=eventBean.getStart_time()%></li>
 						</ul>
 					</div>
+					<div class="col border-right ml-auto mr-auto">
+						<ul class="list-unstyled tbp">
+							<li><strong class="tbg">Capacity:</strong><%=eventBean.getCapacity()%></li>
+							<li><strong class="tbg">Category:</strong> <%=eventBean.getCat_name()%>
+							</li>
+						</ul>
+					</div>
+
+					<!-- BUTTON -->
+					<div
+						class="col text-right pr-5 mr-5 d-flex align-items-center justify-content-center">
+						<!-- DISABLED BUTTON -->
+						<button class="btn-md btn reverse-btn disabled"
+							data-toggle="tooltip" data-placement="top"
+							title="You can give feedback after the event has taken place.">
+							Give Feedback</button>
+
+						<!-- NORMAL BUTTON -->
+						<!-- <button class="btn-md btn reverse-btn">
+                                Give Feedback
+                            </button>												 -->
+					</div>
 				</div>
+				<hr class="end-of-post-hr">
 				<div class="row py-1">
-					<div class="col-sm-12 d-flex justify-content-around mb-3">
+					<div class="col-sm-12 d-flex justify-content-around my-2">
 						<div class="col pl-0">
 							<h5 class="d-inline tbg">
 								You are: <span class="tbp font-weight-light">Going</span>
@@ -360,13 +128,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mx-auto align-items-center">
-					<h6>Tags</h6>
+				<hr class="end-of-post-hr">
+				<div class="row mx-auto align-items-center my-2">
+					<h5 class="tbg">Tags</h5>
 					<p class="tbp">
 						<%
 							ArrayList<String> tagList = event_Data.getEventTagsAsList(eventId);
 							Iterator<String> it = tagList.iterator();
-
 							while (it.hasNext()) {
 								String currTag = it.next();
 						%>
@@ -376,13 +144,15 @@
 						%>
 					</p>
 				</div>
+				<hr class="end-of-post-hr">
 			</div>
 
 		</div>
 		<div id="event-description" class="row justify-content-center mx-auto">
 			<div class="col-sm-10 mt-3">
 				<h4 class="tbg">Description</h4>
-				<p class="tbp"><%=eventBean.getDescription()%></p>
+				<p class="tbp"><%=eventBean.getDescription()%>.
+				</p>
 			</div>
 		</div>
 
@@ -391,9 +161,14 @@
 		<!--AREA FOR ALL POSTS RELATED TO THIS EVENT-->
 		<div class="container">
 			<div id="post-display" class="row justify-content-center">
-				<div class="row mb-3">
-					<div class="col">
-						<h3 class="tbg">Posts on this event</h3>
+				<div
+					class="row mb-3 d-flex justify-content-around align-items-center">
+					<div class="col-sm-12">
+						<div class="row d-flex justify-content-around align-items-center">
+							<h3 class="tbg mr-5">Posts on this event</h3>
+							<a href="#add-new-post "><button class="btn my-btn ml-5">Add
+									new post</button></a>
+						</div>
 					</div>
 
 				</div>
@@ -407,7 +182,6 @@
 								break;
 							Scenez_PostBean currentPost = iter.next();
 					%>
-
 					<!--POST-->
 					<div id="post-n" class="card">
 						<!-- POST HEADER -->
@@ -425,8 +199,8 @@
 								</div>
 								<!-- DELETE BUTTON -->
 								<div class="col">
-									<a href="deletePost.jsp?value=<%=currentPost.getId()%>"
-										class="btn btn-danger btn-sm float-right">Delete</a>
+									<button class="btn btn-danger btn-sm float-right"
+										onclick='location.href="deletePost.jsp?value=<%=currentPost.getId()%>"'>Delete</button>
 								</div>
 							</div>
 							<!-- END OF POST HEADER-->
@@ -448,31 +222,40 @@
 									<span class="col-sm-6 votes pr-0">
 										<div class="btn-group" role="group" aria-label="Button group">
 											<!-- <span><i class="fas fa-caret-up"></i> 21</span> -->
-											<a href="upvotePost.jsp?value=<%=currentPost.getId()%>"
-												class="btn btn-sm btn-outline-dark vote-btn" type="button"><span
-												class="badge badge-pill my-badge mr-2"><%=post_data.getUpVoteCountForPost(currentPost.getId())%></span>Upvote</a>
-											<a href="downVotePost.jsp?value=<%=currentPost.getId()%>"
-												class="btn btn-sm btn-outline-dark vote-btn" type="button">Downvote<span
-												class="badge badge-pill my-badge ml-2"><%=post_data.getDownVoteCountForPost(currentPost.getId())%></span></a>
+											<button
+												onclick='location.href="upvotePost.jsp?value=<%=currentPost.getId()%>"'
+												class="btn btn-sm btn-outline-dark vote-btn" type="button">
+												<span class="badge badge-pill my-badge mr-2"><%=post_data.getUpVoteCountForPost(currentPost.getId())%></span><i
+													class="fas fa-long-arrow-alt-up"></i>
+											</button>
+											<button
+												onclick='"downVotePost.jsp?value=<%=currentPost.getId()%>"'
+												class="btn btn-sm btn-outline-dark vote-btn" type="button">
+												<i class="fas fa-long-arrow-alt-down"></i><span
+													class="badge badge-pill my-badge ml-2"><%=post_data.getDownVoteCountForPost(currentPost.getId())%></span>
+											</button>
 										</div>
 									</span>
 								</div>
 							</div>
 						</div>
 					</div>
+
+
 					<!--COMMENTS AREA FOR THE ABOVE POST-->
 					<div class="row justify-content-end">
 						<div class="col-sm-10">
+
 							<%
 								ArrayList<Scenez_CommentBean> commentList = new ArrayList<Scenez_CommentBean>();
 									commentList = comment_data.getCommentsOfPostAsList(currentPost.getId());
 									Iterator<Scenez_CommentBean> iterate = commentList.iterator();
-
 									while (iterate.hasNext()) {
 										if (commentList.isEmpty())
 											break;
 										Scenez_CommentBean currCommentBean = iterate.next();
 							%>
+
 							<!--INDIVIDUAL COMMENT-->
 							<div class="card my-2">
 								<div class="card-header">
@@ -485,20 +268,29 @@
 												replied:</span> <span class="col-sm-6 votes">
 												<div class="btn-group" role="group"
 													aria-label="Button group">
-													<a href="upvote.jsp?value=<%=currCommentBean.getId()%>"
-														class="btn btn-sm btn-outline-dark vote-btn" type="button"><span
-														class="badge badge-pill my-badge mr-2"><%=comment_data.getUpVoteCountForComment(currCommentBean.getId())%></span>Upvote</a>
-													<a href="downVote.jsp?value=<%=currCommentBean.getId()%>"
-														class="btn btn-sm btn-outline-dark vote-btn" type="button">Downvote<span
-														class="badge badge-pill my-badge ml-2"><%=comment_data.getDownVoteCountForComment(currCommentBean.getId())%></span></a>
+													<button
+														onclick='location.href="upvote.jsp?value=<%=currCommentBean.getId()%>"'
+														class="btn btn-sm btn-outline-dark vote-btn" type="button">
+														<span class="badge badge-pill my-badge mr-2"><%=comment_data.getUpVoteCountForComment(currCommentBean.getId())%></span><i
+															class="fas fa-long-arrow-alt-up"></i>
+													</button>
+													<button
+														onclick='location.href="downVote.jsp?value=<%=currCommentBean.getId()%>"'
+														class="btn btn-sm btn-outline-dark vote-btn" type="button">
+														<i class="fas fa-long-arrow-alt-down"></i><span
+															class="badge badge-pill my-badge ml-2"><%=comment_data.getDownVoteCountForComment(currCommentBean.getId())%></span>
+													</button>
 												</div>
 											</span>
 										</div>
-										<div class="col">
-											<a
-												href="deleteComment.jsp?value=<%=currCommentBean.getId()%>"
-												class="btn btn-danger btn-sm float-right">Delete</a>
+										<div class="col d-flex align-items-center justify-content-end">
+											<button
+												onclick='location.href="deleteComment.jsp?value=<%=currCommentBean.getId()%>"'
+												class="btn btn-danger btn-sm float-right">Delete</button>
 										</div>
+									</div>
+									<div class="row d-flex justify-content-end pr-3">
+										<span style="font-size: 0.6rem;"><%=currCommentBean.getTimestamp()%></span>
 									</div>
 								</div>
 								<div class="card-body">
@@ -508,19 +300,20 @@
 							<%
 								}
 							%>
-							<!--NEW INDIVIDUAL COMMENT-->
+
+							<!-- ADD COMMENT -->
 							<form class="form" action="postComment.jsp">
-								<div class="form-group col-sm-10 d-block">
+								<div class="form-group col-sm-10 d-block mt-3 px-4">
 									<div class="row my-2">
-										<h6>Add new comment</h6>
+										<h5 class="tbg">Add new comment</h5>
 									</div>
 									<div class="row my-2">
 										<label for="my-input">Post Content</label>
-										<textarea id="my-input" name="reply" class="form-control"
-											rows="3"></textarea>
-										<input type="hidden" name="postId"
-											value=<%=currentPost.getId()%>>
+										<textarea id="my-input" name="post-content"
+											class="form-control tbp" rows="3"></textarea>
 									</div>
+									<input type="hidden" name="postId"
+										value=<%=currentPost.getId()%> />
 									<div class="row my-2 justify-content-end">
 										<button type="submit" class="btn btn-outline-dark my-btn">Post
 											Comment</button>
@@ -528,87 +321,93 @@
 								</div>
 							</form>
 
-
-							<%
-								}
-							%>
 						</div>
-					</div>
+						</div>
+						<%
+							}
+						%>
+
+					
 				</div>
-				<div id="post-add" class="row justify-content-center">
-					<div class="form-group col-sm-12 d-block">
+			</div>
+			<div id="post-add" class="row justify-content-center">
+				<form class="form" action="newPost.jsp">
+					<div class="form-group col d-block">
 						<div class="row my-2">
-							<h4>Add new post</h4>
+							<a href="" name="add-new-post"></a>
+							<h4 class="tbg">Add new post</h4>
 						</div>
-						<form class="form" action="newPost.jsp">
-							<div class="row my-2">
-								<label for="">Post Title</label> <input id="" name="post-title"
-									class="form-control" type="text"> <input type="hidden"
-									name="eventId" value=<%=eventBean.getId()%>>
-							</div>
-							<div class="row my-2">
-								<label for="my-input">Post Content</label>
-								<textarea id="my-input" name="post-content" class="form-control"
-									rows="3"></textarea>
-							</div>
-							<div class="row my-2 justify-content-end">
-								<button type="submit" class="btn btn-outline-dark my-btn">Make
-									New Post</button>
-							</div>
-						</form>
+						<div class="row my-2">
+							<label for="">Post Title</label> <input id="" name="post-title"
+								class="form-control" type="text">
+						</div>
+						<div class="row my-2">
+							<label for="my-input">Post Content</label>
+							<textarea id="my-input" name="post-content" class="form-control"
+								rows="3"></textarea>
+						</div>
+						<input type="hidden" name="eventId" value=<%=eventBean.getId()%>>
+						<div class="row my-2 justify-content-end">
+							<button type="submit" class="btn btn-outline-dark my-btn">Make
+								New Post</button>
+						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- FOOTER -->
-	<footer
-		class="footer container-fluid col-sm-12 justify-content-between mt-5 fixed"
-		style="background-color: #303030;">
-
-		<!-- LOGO -->
-		<div class="row d-flex justify-content-betweens align-items-center">
-			<div class="col-2 footer-logo d-block float-left ">
-				<img src="logo.png">
-			</div>
-
-			<!-- INFO -->
-			<div class="col links d-inline-block my-auto justify-content-around">
-				<a href="#">HOME</a> <label for=""> | </label> <a href="#">ABOUT</a>
-				<label for=""> | </label> <a href="#">SUPPORT</a> <label for="">
-					| </label> <a href="#">CONTACT</a>
-			</div>
-
-			<!-- NEWSLETTER -->
-			<div class="float-right col-2">
-				<p class="mb-1 " style="letter-spacing: 1px;">JOIN OUR
-					NEWSLETTER</p>
-				<form action="#" id="newsletter" class="row align-items-center">
-					<input type="email" id="newsletter-input"
-						class="col-sm-8 bg-dark rounded form-control-sm border-1 px-2 ml-auto">
-					<button
-						class="btn btn-sm btn-outline-light text-light bg-transparent ml-auto mr-auto"
-						type="submit">JOIN</button>
 				</form>
 			</div>
 		</div>
 
-		<!-- CREDITS -->
-		<div class="row mt-2">
-			<div class="credits col d-block mb-0">
-				<p class="mb-0">© Codeplay | All Right Reserved</p>
+		<!-- FOOTER -->
+		<footer
+			class="footer container-fluid col-sm-12 justify-content-between mt-5 fixed"
+			style="background-color: #303030;">
+
+			<!-- LOGO -->
+			<div class="row d-flex justify-content-betweens align-items-center">
+				<div class="col-2 footer-logo d-block float-left ">
+					<img src="logo.png">
+				</div>
+
+				<!-- INFO -->
+				<div class="col links d-inline-block my-auto justify-content-around">
+					<a href="#">HOME</a> <label for=""> | </label> <a href="#">ABOUT</a>
+					<label for=""> | </label> <a href="#">SUPPORT</a> <label for="">
+						| </label> <a href="#">CONTACT</a>
+				</div>
+
+				<!-- NEWSLETTER -->
+				<div class="float-right col-2">
+					<p class="mb-1 " style="letter-spacing: 1px;">JOIN OUR
+						NEWSLETTER</p>
+					<form action="#" id="newsletter" class="row align-items-center">
+						<input type="email" id="newsletter-input"
+							class="col-sm-8 bg-dark rounded form-control-sm border-1 px-2 ml-auto">
+						<button
+							class="btn btn-sm btn-outline-light text-light bg-transparent ml-auto mr-auto"
+							type="submit">JOIN</button>
+					</form>
+				</div>
 			</div>
-		</div>
 
-	</footer>
+			<!-- CREDITS -->
+			<div class="row mt-2">
+				<div class="credits col d-block mb-0">
+					<p class="mb-0">© Codeplay | All Right Reserved</p>
+				</div>
+			</div>
 
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		</footer>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script>
+			$(function() {
+				$('[data-toggle="tooltip"]').tooltip()
+			})
+		</script>
 </body>
 
 </html>
