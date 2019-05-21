@@ -121,7 +121,7 @@ public class Scenez_GRP {
 				s_con.rollback();
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
-				System.out.println("There's a fucking error with the rollback");
+				System.out.println("There's a ducking error with the rollback");
 				e1.printStackTrace();
 			}
     	}
@@ -130,7 +130,7 @@ public class Scenez_GRP {
 				s_con.setAutoCommit(true);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				System.out.println("There's a fucking error with setAutoCommit");
+				System.out.println("There's a ducking error with setAutoCommit");
 				e.printStackTrace();
 			}
     	}

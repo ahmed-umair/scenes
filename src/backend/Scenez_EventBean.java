@@ -16,6 +16,7 @@ public class Scenez_EventBean {
 	private String cat_name;
 	private int location_id;
 	private String event_date;
+	private String location;
 	
 	/**
 	 * @return the id
@@ -148,6 +149,12 @@ public class Scenez_EventBean {
 	 */
 	public void setEvent_date(String event_date) {
 		this.event_date = event_date;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	
 }
