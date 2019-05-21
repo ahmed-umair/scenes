@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Search Results | Scenez</title>
+	<title>About Us | Scenez</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,9 +10,8 @@
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<!-- <link rel="stylesheet" type="text/css" href="mainfeed.css"> -->
 	<link rel="stylesheet" type="text/css" href="common.css">
-        <link rel="stylesheet" type="text/css" href="header.css">
-        <link rel="stylesheet" type="text/css" href="members_common.css">
-	<link rel="stylesheet" type="text/css" href="searchresults.css">
+	<link rel="stylesheet" type="text/css" href="header.css">
+	<link rel="stylesheet" type="text/css" href="about.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
 		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
@@ -46,7 +45,15 @@
 
 				<!--NOTIFICATIONS BUTTON-->
 				<div class="col-sm-1">
-					<a href="#"><i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right"></i></a>
+					<a href="# dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="far fa-bell fa-2x fa-fw neeche_button ml-auto float-right animate"></i>
+					</a>
+					<div class="dropdown-menu" id="pic-dropdown" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item option pr-2" href="#">Friend Requests <span class="badge badge-pill badge-tag ml-2">2</span></a>
+						<a class="dropdown-item option pr-2" href="#">Chats<span class="badge badge-pill badge-tag ml-2 float-right">1</span></a>
+						<a class="dropdown-item option pr-2" href="#">Event Invites<span class="badge badge-pill badge-tag ml-2 float-right">7</span></a>
+						<a class="dropdown-item option pr-2" href="#">Group Invites<span class="badge badge-pill badge-tag ml-2 float-right">4</span></a>
+					</div>
 				</div>
 
 
@@ -86,21 +93,33 @@
 					<h5 class="tbg col-sm-12"><strong>My Groups</strong></h5>
 				</div>
 
-				<div id="group-list" class="row mx-auto">
-					<nav class="nav col-sm-12 mx-auto">
-						<div class="row align-items-center">
-							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Orgy Central</a>
-						</div>
+				<div id="group-list" class="container mx-auto">
+					<nav class="nav col-sm-12 mx-auto list-group">
+
 						<div class="row">
-							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Assault on Aayan Nusrat's
-								House</a>
+							<div class="col-sm-12">
+								<a class="nav-link tbp d-inline-block" href="#"><i
+										class="fas fa-users mr-2"></i>Orgy</a>
+							</div>
 						</div>
-						<div class="row">
-							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Lez go partayy</a>
+
+						<div class="row d-block">
+							<div class="col-sm-12">
+								<a class="nav-link tbp d-inline-block" href="#"><i
+										class="fas fa-users mr-2"></i>Sehri</a>
+							</div>
 						</div>
-						<div class="row">
-							<a class="nav-link tbp" href="#"><i class="fas fa-users mr-2"></i>Getting collective FZ in
-								EEE</a>
+						<div class="row d-block">
+							<div class="col-sm-12">
+								<a class="nav-link tbp d-inline-block" href="#"><i
+										class="fas fa-users mr-2"></i>Iftar</a>
+							</div>
+						</div>
+						<div class="row d-block">
+							<div class="col-sm-12">
+								<a class="nav-link tbp d-inline-block" href="#"><i
+										class="fas fa-users mr-2"></i>"Dinner"</a>
+							</div>
 						</div>
 					</nav>
 					<div class="row">
@@ -110,8 +129,8 @@
 					</div>
 				</div>
 				<!-- LIST OF GROUPS -->
-				<div class="row">
-					<div class="col-sm-12">
+				<div class="container px-0">
+					<div class="col-sm-8">
 						<button id="create-group-btn" class="btn btn-sm btn-outline-dark mt-3 col mx-auto my-btn">Create
 							Group</button>
 					</div>
@@ -123,20 +142,20 @@
 			<!-------- POPULAR TAGS --------->
 			<div id="pop-tags" class="row d-flex">
 				<!-- HEADING -->
-				<div class="row">
+				<div class="row d-block">
 					<h5 class="tbg col"><strong>Popular Tags</strong></h5>
 				</div>
 
-				<div class="row">
-					<div class="col-sm-10">
+				<div class="container px-0 d-block">
+					<div class="col">
 						<a href="#" class="badge badge-tag d-inline">Primary</a>
 						<a href="#" class="badge badge-tag d-inline">Secondary</a>
-						<a href="#" class="badge badge-tag d-inline">Success</a>
+						<!-- <a href="#" class="badge badge-tag d-inline">Success</a>
 						<a href="#" class="badge badge-tag d-inline">Danger</a>
 						<a href="#" class="badge badge-tag d-inline">Warning</a>
 						<a href="#" class="badge badge-tag d-inline">Info</a>
 						<a href="#" class="badge badge-tag d-inline">Light</a>
-						<a href="#" class="badge badge-tag d-inline">Dark</a>
+						<a href="#" class="badge badge-tag d-inline">Dark</a> -->
 					</div>
 
 				</div>
@@ -254,97 +273,90 @@
 		</div>
 	</div>
 
+	<!-- ******************************************************** -->
+	<!-- ******************************************************** -->
+	<!-- ******************************************************** -->
 
+	<div class="container-fluid col-sm-8 mb-5">
+		<div class="row my-auto">
+			<div class="col-sm-12 d-flex justify-content-center">
+				<h4 class="display-4 tbp font-weight-normal" style="letter-spacing: 8px;">ABOUT US</h4>
+			</div>
+		</div>
 
+		<hr class="end-of-post-hr mb-5">
 
+		<div class="container col-sm-12 ml-3">
+			<div id="team" class="row">
+				<div class="row">
+						<h4 class="display-4 tbp font-weight-normal" style="letter-spacing: 3px; font-size: 2rem;">TEAM COLDPLAY</h4>					
+				</div>
+				<div class="row">
+						<p class="tbg" style="font-size: 1.1rem;">Team Codeplay is a group of four passionate engineering students currently pursuing Computer Engineering from Bilkent University, Ankara. Our aim is to develop applications which would bring a positive difference in the world.</p>
+				</div>
+			</div>
 
-        <!-- *************** FEED *************** -->
-        
-        <!-- HEADING -->
-		<div class="container-fluid col-lg-8 d-inline-block feed pl-3">
-			<div class="d-flex justify-content-start  align-items-center mt-4 mb-0 pb-0 pl-3 row">
-                <h2 style="color: #4E4E4E; font-weight: 700;" class="mr-2">Showing search results for: </h2>
-                <h2 id="search-query">ahmed</h2>
-            </div>
+			<hr class="end-of-post-hr">
 
-            <hr>
+			<div id="members" class="row col-sm-12">
+				<div class="row">
+						<h4 class="display-4 tbp font-weight-normal mb-3" style="letter-spacing: 3px; font-size: 2rem;">MEMBERS</h4>					
+				</div>
 
-			<!-- SORTING AREA -->
-			<form action="">
-            <div class="d-flex justify-content-center sort-div">
-                <div class="d-flex justify-content-between col-sm-12 align-items-center mt-2 mb-2 pb-0 row">					
-                    <div class="col-sm-3">
-                        <label for="" class="tbg mr-3" style="font-weight: 700;">Search Type</label>
-                        <select name="search-type" id="" class="rounded">
-                            <option value="events">Users</option>
-                            <option value="groups">Groups</option>
-                            <option value="users">Events</option>
-                        </select>
-                    </div>  
-                    <div class="col-sm-4">
-                        <label for="" class="tbg mr-3" style="font-weight: 700;">Category</label>
-                        <select name="category" id="" class="rounded">
-                            <option value="porn">-</option>
-                            <option value="">Bolivian Porn</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-5 my-auto">
-                        <label for="" class="tbg mr-3" style="font-weight: 700;">Sort By</label>
-                        <select name="sort" id="" class="rounded p-auto">
-                            <option value="asc-alphabetical">Asc: Alphabetical A-Z</option>
-                            <option value="desc-alphabetical">Des: Alphabetical A-Z</option>
-                            <option value="asc-date">Asc: Date</option>
-                            <option value="desc-date">Des: Date</option>
-                            
-								</select>
-								<button class="btn btn-sm reverse-btn float-right" type="submit">Apply</button>
+				<!-- DAWOOD -->
+				<div class="row d-flex align-items-center">
+					<div class="col-sm-3 d-inline-block">						
+						<img src="https://6qo7vq.am.files.1drv.com/y4pnnippOFYLrF3FkBVT6gm1ki1s3MdlaOSIq_Z7-ojOhsk13AH3h4GA5N0GnS6uWKy68MxFUBHZgA76_3EPN6fwpegbWepB7VAzc6aN-q0WZza7POjGsbF0Pvt3W2CJUZyab39jhZvjRD6ODAXmA7waNhLjyqdNI5Ld_6eQanHEg-X-f6NU5SDSkM2YNcNZvjre53i9o7KKTLxMCpoD3UVKA/20180815_072907109_iOS.jpg?psid=1" class="img-responsive img-thumbnail pic" alt="Image">						
 					</div>
-				
+					<div class="col-sm-9">
+						<h1 class="tbp">Dawood Muzammil Malik</h1>
+						<h4 class="font-weight-light">Department: <span class="tbp">Computer Engineering</span></h4>
+						<h4 class="font-weight-light">Grade: <span class="tbp">3</span></h4>
+					</div>
 				</div>
-			
-                
-			</div>
-		</form>
-            <hr>
-            
 
-            <div class="container col-lg-12 d-inline-block px-0">
+				<!-- Masna -->
+				<div class="row d-flex align-items-center justify-content-end">
+					<div class="col-sm-9 text-right">
+							<h1 class="tbp">Masna Ahmed</h1>
+							<h4 class="font-weight-light">Department: <span class="tbp">Computer Engineering</span></h4>
+							<h4 class="font-weight-light">Grade: <span class="tbp">3</span></h4>
+						</div>
 
-					<!-- USER 1 -->                
-					 
-					 <!-- USER 2 -->
-                <a href="#" class="friend-row d-block p-2 border-bottom">
-                    <div class="row d-flex align-items-center ">
-                        <div class="col-sm-2 text-center">
-                            <img src="bandi.jpg" alt="" class="img-thumbnail header-thumb">
-                        </div>
-                        <div class="col-sm-10">
-                            <h5 class="display-4 page-friend-name tbp">Umair Ahmed</h5>
-                        </div>
-                        <!-- Image and link to profile- backend -->
-                    </div>
-					 </a>
-					 
-					 <!-- USER 3 -->
-                <a href="#" class="friend-row d-block p-2 border-bottom">
-                    <div class="row d-flex align-items-center ">
-                        <div class="col-sm-2 text-center">
-                            <img src="celebration.jpg" alt="" class="img-thumbnail header-thumb">
-                        </div>
-                        <div class="col-sm-10">
-                            <h5 class="display-4 page-friend-name tbp">Masna Ahmed</h5>
-                        </div>
-                        <!-- Image and link to profile- backend -->
-                    </div>
-				</a>					 					                                 
+					<div class="col-sm-3 d-inline-block">						
+						<img src="https://6go0vq.am.files.1drv.com/y4p6O8i9luY38czv_KtzUUIFsM_k0ZAo2UR6-LZr_AAiC6msgzBzxZvS-y89zSfZtN8viS2D9Ynkael4A_g1wzEkXPCKdhh43C081Ww2NXqIfDrhLGPCyQzcvu11TD6Ibf_2e8Jk6SZQFYq-I_swtbk4vW22k3Dwreq4NxUSXHZ3IFBWpBSFg2ZTwBy7S0doqJcVDIRKngIICI9M_8DBR8JGg/masna.jpg?psid=1" class="img-responsive img-thumbnail pic" alt="Image">						
+					</div>					
 				</div>
-			</div>
-				
-			
 
-	<!-- FOOTER -->
-	
-	
+				<!-- Umair -->
+				<div class="row d-flex align-items-center">
+					<div class="col-sm-3 d-inline-block">						
+						<img src="https://6go0vq.am.files.1drv.com/y4ppM_KpKc90VZY1lxE7w4mkSNG2tqmKrdVOuGDu6rtI2W-EAYFjh91Bqn_1Cmsn-ALpj7eSuiiUCJELnRmfRmVlvqtse_WdeZ-K0p1QWk-WcD0ozqvBPXpNV7cANp6Sm-4wQjH7OJwSEbJpRkBh8pPRnYCZasmZHi5j8IWn11leHjPqUyk7kuQC8QYiIx3o8RKd74t4d6rxCPVhmKYEfeWOA/umair.jpg?psid=1" class="img-responsive img-thumbnail pic" alt="Image">						
+					</div>
+					<div class="col-sm-9">
+						<h1 class="tbp">Muhammad Umair Ahmed</h1>
+						<h4 class="font-weight-light">Department: <span class="tbp">Computer Engineering</span></h4>
+						<h4 class="font-weight-light">Grade: <span class="tbp">3</span></h4>
+					</div>
+				</div>
+
+				<!-- Talha -->
+				<div class="row d-flex align-items-center justify-content-end">
+					<div class="col-sm-9 text-right">
+							<h1 class="tbp">Talha Zeeshan</h1>
+							<h4 class="font-weight-light">Department: <span class="tbp">Computer Engineering</span></h4>
+							<h4 class="font-weight-light">Grade: <span class="tbp">3</span></h4>
+						</div>
+
+					<div class="col-sm-3 d-inline-block">						
+						<img src="https://6go0vq.am.files.1drv.com/y4p-eOnvYbvq21NhhHRZYWHsG5g2srwLXrvCgxfA9vDAWMiDa5JI_LY9-Qj1CtkZ9U021qGmY8TUq_iumlT5xnR31fuUiJBYU3q1ZhHSGhQjSwwvSeTCk8UU9iMqcT_Q0YvYhYzifTCnYRZiOMt2xPcFpPq4G8xNydeqoJLTtDuo7hCpcBR9DtmULmCM58-YYWmeUOmy-O_fuwHOFS4qC3juQ/talha.jpg?psid=1" class="img-responsive img-thumbnail pic" alt="Image">						
+					</div>					
+				</div>
+
+			</div>
+		</div>
+	</div>
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
