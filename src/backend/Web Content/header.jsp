@@ -1,3 +1,4 @@
+<%@page import="backend.Scenez_GroupBean"%>
 <%@page import="backend.Scenez_Comments"%>
 <%@page import="backend.Scenez_PostBean"%>
 <%@page import="backend.Scenez_Connection"%>
@@ -56,13 +57,13 @@
 
 				<!--HOME BUTTON-->
 				<div class="col-sm-1 ">
-					<a href="#"><i class="fa fa-home fa-2x fa-fw neeche_button my-auto float-left"></i></a>
+					<a href="mainfeed.jsp"><i class="fa fa-home fa-2x fa-fw neeche_button my-auto float-left"></i></a>
 				</div>
 
 
 				<!-- SEARCH BAR -->
-				<div class="col">
-					<form class="form-inline">
+				<div class="col ">
+					<form class="form-inline" action="search.jsp">
 						<input type="text" name="searchBar" placeholder="Search bar..." class="col search_bar ml-auto">
 						<button type="submit" class="search_bar col-sm-1 d-inline" id="search_button">
 							<i class="fa fa-search "></i>
@@ -85,7 +86,8 @@
 								<div class="dropdown show">
 									<a class="name dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
 										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Ivana Bouchard
+										 <%=usr_data.getFirstNameAsString(session.getAttribute("email").toString()) + " "
+											+ usr_data.getLastNameAsString(session.getAttribute("email").toString())%>
 									</a>
 
 									<div class="dropdown-menu" id="pic-dropdown" aria-labelledby="dropdownMenuLink">
@@ -116,17 +118,21 @@
 				<div id="group-list" class="row mx-auto">
 					<nav class="nav col-sm-12 mx-auto list-group">
 					 <%
+					 		ArrayList<Scenez_GroupBean> grpBean = new ArrayList<Scenez_GroupBean>();
+					 		grpBean = grp_data.getGroupBean(session.getAttribute("email").toString());
+					 		int size = grpBean.size();
+					 		
 							int x = 0;
-							for (; x < grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).size(); x++  )
+							for (; x < size; x++  )
 							{
 								if (x > 4)
 									break;
-							%>
+					 %>
 
 						<div class="row d-block">
 							<div class="col-sm-12">
-								<a class="nav-link tbp d-inline-block" href="#"><i
-										class="fas fa-users mr-2"></i><%= grp_data.getGroupNamesAsLinkedList(session.getAttribute("email").toString()).get(x) %></a>
+								<a class="nav-link tbp d-inline-block" href="viewGroup.jsp?value=<%=grpBean.get(x).getGrp_id()%>"><i
+										class="fas fa-users mr-2"></i><%= grpBean.get(x).getName() %></a>
 							</div>
 						</div>
 					</nav>
@@ -140,6 +146,7 @@
 					</div>
 					<% } %>
 				</div>
+				
 				<!-- LIST OF GROUPS -->
 				<div class="container">
 					<div class="col-sm-12">
@@ -166,7 +173,7 @@
 								if (i > 4)
 									break;
 							%>
-						<a href="#" class="badge badge-tag d-inline"><%= tag_data.getPopularTagsAsList().get(i) %></a>
+						<a href="searchEvent.jsp?value=<%=tag_data.getPopularTagsAsList().get(i) %>" class="badge badge-tag d-inline"><%= tag_data.getPopularTagsAsList().get(i) %></a>
 						<% } %>
 					</div>
 
@@ -190,21 +197,26 @@
 				<p id="sort-prompt" class="tbp col-sm-12 px-0 py-0 mb-3">Sorted by: date</p>
 
 				<nav class="nav flex-column">
-				<%
-					for (int i = 0; i < event_Data.getEventNamesAsList(session.getAttribute("email").toString()).size(); i++  )
-					{
-						if (i > 4)
-							break;
-				%>
+					<%
+						ArrayList<Scenez_EventBean> eventsAttending = new ArrayList<Scenez_EventBean>();
+						eventsAttending = event_Data.getEventNamesAsList(session.getAttribute("email").toString());
+						int eventsSize = eventsAttending.size();
+						for (int i = 0; i < eventsSize; i++) {
+							if (i > 4)
+								break;
+					%>
 					<!-- Event 1 -->
 					<div class="mb-4 trending-event-instance">
-						<a href="#">
-							<h4 class="tbg trending-event-heading mb-0"><%= event_Data.getEventNamesAsList(session.getAttribute("email").toString()).get(i) %></h4>
-							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event created by: </p>
-							<span class="tbp" style="font-size: 0.8rem;">Ankara Concert Association</span>
+						<a href="viewEvent.jsp?value=<%=eventsAttending.get(i).getId()%>">
+							<h4 class="tbg trending-event-heading mb-0"><%=eventsAttending.get(i).getName()%></h4>
+							<p class="tbg font-weight-bold mb-0" style="font-size: 0.8rem;">Event
+								created by:</p> <span class="tbp" style="font-size: 0.8rem;"><%=usr_data.getFirstNameAsString(eventsAttending.get(i).getEmail()) + " "
+						+ usr_data.getLastNameAsString(eventsAttending.get(i).getEmail())%></span>
 						</a>
 					</div>
-				<%  } %>
+					<%
+						}
+					%>
 					<a href="#" id="see-more" class="mx-auto"><strong>See more</strong></a>
 				</nav>
 			</div>
@@ -225,7 +237,7 @@
 							for (int i = 0; i < users_friends.size(); i++)
 							{
 									
-						%>
+				%>
 				<%	if (users_friends.get(i).getRequester().equals(session.getAttribute("email").toString())) { %>
 				<!-- Friend 1 -->
 				<a href="#" class="chat-link">
