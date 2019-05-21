@@ -117,4 +117,89 @@ public class Scenez_Comments {
 		return null;
 	}
 	
+	//Delete Comment
+	public void deleteComment(int commentID) {
+		String query = "delete from project.comment where id=?;";
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, commentID);
+			
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//Id of post from comment
+	public int getEventID(int commentID) {
+		String query = "select post_id from project.comment where id=?;";
+		int postID = 0;
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, commentID);
+			
+			ResultSet res = stmt.executeQuery();
+			
+			while(res.next()) {
+				postID = res.getInt(1);
+				break;
+			}
+			
+			Scenez_POST eventofPost = new Scenez_POST(s_con.getConnection());
+			
+			return eventofPost.getEventID(postID);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	public int getUpVoteCountForComment(int commID) {
+		String query = "select count(*) from project.vote_comment where comment_id=? and vote_type=1;";
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, commID);
+			
+			ResultSet res = stmt.executeQuery();
+			
+			while(res.next()) {
+				return res.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	public int getDownVoteCountForComment(int commID) {
+		String query = "select count(*) from project.vote_comment where comment_id=? and vote_type=-1;";
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, commID);
+			
+			ResultSet res = stmt.executeQuery();
+			
+			while(res.next()) {
+				return res.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
 } //End of class
