@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Scenez_POST {
 	
@@ -145,5 +147,142 @@ public class Scenez_POST {
 			
 			return null;
 	}
+	
+	
+	private boolean insertPostHelper(int id, String title, String content, String email, int eventID) {
+		String query = "INSERT INTO project.post VALUES (?,?,?,?,?,?);";
+		boolean success = false;
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, id);
+			stmt.setString(2, title);
+			stmt.setString(3, content);
+			stmt.setTimestamp(4, new Timestamp(new Date().getTime()));
+			stmt.setString(5, email);
+			stmt.setInt(6, eventID);
+			
+			stmt.executeUpdate();
+			success = true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			success = false;
+		}
+		
+		return success;
+	}
+	
+	public void insertPost(String email, String title, String content, int eventID) {
+		String query = "select max(id) from project.post;";
+		int maxId = 0;
+		
+		try {
+			s_con.getConnection().setAutoCommit(false);
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			ResultSet res = stmt.executeQuery();
+			
+			while(res.next()) {
+				maxId = res.getInt(1);
+				break;
+			}
+			
+			if(insertPostHelper(maxId+1, title, content, email, eventID)== true);
+				System.out.println("SUCCESS");
+			
+			s_con.getConnection().setAutoCommit(true);
+		} catch (SQLException e) {
+			try {
+				s_con.getConnection().rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				System.out.println("Error! Unable to rollback");
+			}
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	// Delete Post Method
+	public boolean deletePost(int postID) {
+		String query = "delete from project.post where id=?;";
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, postID);
+			
+			stmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
+	public int getEventID(int postID) {
+		
+		String query = "select event_id from project.post where id=?;";
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, postID);
+			
+			ResultSet res = stmt.executeQuery();
+			
+			while(res.next()) {
+				return res.getInt(1);
+			}
+						
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	public int getUpVoteCountForPost(int postID) {
+		String query = "select count(*) from project.vote_post where post_id=? and vote_type=1;";
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, postID);
+			
+			ResultSet res = stmt.executeQuery();
+			
+			while(res.next()) {
+				return res.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	public int getDownVoteCountForPost(int postID) {
+		String query = "select count(*) from project.vote_post where post_id=? and vote_type=-1;";
+		
+		try {
+			PreparedStatement stmt = s_con.getConnection().prepareStatement(query);
+			stmt.setInt(1, postID);
+			
+			ResultSet res = stmt.executeQuery();
+			
+			while(res.next()) {
+				return res.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return 0;
+	}
 
-}
+} //End of Class
